@@ -11,6 +11,35 @@
 	<link href="css/bootstrap-theme.min.css" rel="stylesheet" type="text/css">
 	<link href="css/bootstrap-social.css" rel="stylesheet" type="text/css">	
 	<link href="css/templatemo_style.css" rel="stylesheet" type="text/css">	
+	<script language="JavaScript" type="text/JavaScript">
+        function toggle(){
+        	 target1 = document.getElementById("sky_1");
+        	 target2 = document.getElementById("sky_2");
+        	 var tart1 = document.getElementById("del1");
+        	 
+        	if(tart1.checked == true ){
+        		target1.style.display = "block";
+        		target2.style.display = "none";
+        	}else {
+        		target1.style.display = "none";
+        		target2.style.display = "block";
+        	}
+            
+        }   
+	</script>
+	<style type="text/css">
+    
+        .margin-bottom-15{
+            margin-bottom: 15px;
+        }
+        #sky_1{
+        	display:none;
+        }
+        #sky_2{
+        	display:block;
+        }
+    
+    </style>
 </head>
 <body class="templatemo-bg-image-1">
 	<div class="container">
@@ -18,7 +47,7 @@
 			<form class="form-horizontal templatemo-login-form-2" role="form" action="#" method="post">
 				<div class="row">
 					<div class="col-md-12">
-						<h1>Login Form Two</h1>
+						<h1>Sign In</h1>
 					</div>
 				</div>
 				<div class="row">
@@ -61,19 +90,39 @@
 				       	 	</div>
 				    	</div>
 					</div>
-					<div class="templatemo-other-signin col-md-6">
-						<label class="margin-bottom-15">
-							One-click sign in using other services. Credit goes to <a rel="nofollow" href="http://lipis.github.io/bootstrap-social/">Bootstrap Social</a> for social sign in buttons.
+					<div class="templatemo-other-signin col-md-6"><!--  class="templatemo-other-signin col-md-6"-->
+					    <div id="sky_1">
+					    	<label class="margin-bottom-15" >
+							    111111One-click sign in using other services. Credit goes to <a rel="nofollow" href="http://lipis.github.io/bootstrap-social/">Bootstrap Social</a> for social sign in buttons.
+						    </label>
+					    </div>
+					    
+				        <div id="sky_2">
+				        	<label class="margin-bottom-15" >
+							    222222One-click sign in using other services. Credit goes to <a rel="nofollow" href="http://lipis.github.io/bootstrap-social/">Bootstrap Social</a> for social sign in buttons.
+						    </label>
+				        </div>
+				        
+						<!--
 						</label>
 						<a class="btn btn-block btn-social btn-facebook margin-bottom-15">
 						    <i class="fa fa-facebook"></i> Sign in with Facebook
 						</a>
+						<label>
 						<a class="btn btn-block btn-social btn-twitter margin-bottom-15">
 						    <i class="fa fa-twitter"></i> Sign in with Twitter
 						</a>
 						<a class="btn btn-block btn-social btn-google-plus">
 						    <i class="fa fa-google-plus"></i> Sign in with Google
-						</a>
+						</a>-->
+					</div>
+					<div class="templatemo-other-signin col-fd-2">
+						<input id="del1" type="radio"  name="choose" value="edu-administration" onclick="toggle()"/> 
+				           <span> edu-administration</span>
+				        <br/>
+				        
+				        <input id="del2" type="radio" name="choose" value="Teacher" checked="Teacher" onclick="toggle()"/> 
+				           <span> Teacher </span>
 					</div>   
 				</div>				 	
 		      </form>		      		      
