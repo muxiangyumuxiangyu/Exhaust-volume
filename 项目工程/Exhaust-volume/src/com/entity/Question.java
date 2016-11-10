@@ -28,6 +28,7 @@ public class Question {
 	private QuestionType type;
 	private Answer answer;
 	private Set<Recorder> recorders=new HashSet<Recorder>();
+	private Exam exam;
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
@@ -103,6 +104,15 @@ public class Question {
 	}
 	public void setRecorders(Set<Recorder> recorders) {
 		this.recorders = recorders;
+	}
+	
+	@ManyToOne(cascade=CascadeType.ALL)
+	@JoinColumn(name="e_id")
+	public Exam getExam() {
+		return exam;
+	}
+	public void setExam(Exam exam) {
+		this.exam = exam;
 	}
 	
 	

@@ -1,6 +1,6 @@
 package com.entity;
 
-import java.sql.Date;
+import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -12,6 +12,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import org.hibernate.annotations.GenericGenerator;
@@ -30,6 +31,7 @@ public class Teacher {
 	private byte[] photo;
 	private Set<Role> roles=new HashSet<Role>();
 	private Set<Course> courses=new HashSet<Course>();
+	private Set<Exam> exams=new HashSet<Exam>();
 	
 	@Id
 	@GenericGenerator(strategy="assigned",name="login")
@@ -114,5 +116,14 @@ public class Teacher {
 	public void setCourses(Set<Course> courses) {
 		this.courses = courses;
 	}
+	
+	@OneToMany(mappedBy="teacher",fetch=FetchType.EAGER)
+	public Set<Exam> getExams() {
+		return exams;
+	}
+	public void setExams(Set<Exam> exams) {
+		this.exams = exams;
+	}
+	
 	
 }
