@@ -11,6 +11,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
@@ -55,7 +57,16 @@ public class Exam {
 		this.teacher = teacher;
 	}
 	
-	@OneToMany(mappedBy="exam",fetch=FetchType.EAGER)
+	@ManyToMany(
+	        targetEntity=com.entity.Question.class,
+	        cascade={CascadeType.PERSIST, CascadeType.MERGE},
+	        fetch=FetchType.EAGER
+	    )
+	@JoinTable(
+	        name="examquestionalt",
+	        joinColumns=@JoinColumn(name="e_id"),
+	        inverseJoinColumns=@JoinColumn(name="q_id")
+	    )
 	public Set<Question> getQuestions() {
 		return questions;
 	}
