@@ -19,42 +19,44 @@
 </head>
 <body>
 <section class="vbox">
-  <jsp:include page="header.jsp"/>
-  <section>
+	<jsp:include page="header.jsp"/>
+  	<section>
     <section class="hbox stretch"> <!-- .aside -->
-      <jsp:include page="aside.jsp"/>
-      <!-- /.aside -->
-      <section id="content">
-        <section class="vbox">
-          <section class="scrollable padder">
-            <ul class="breadcrumb no-border no-radius b-b b-light pull-in">
-              <li><a href="index.html"><i class="fa fa-home"></i> 教务</a></li>
-              <li class="active">index</li>
-            </ul>
-            <div class="m-b-md">
-              <h3 class="m-b-none">工作台</h3>
-              <small>Welcome back, username</small>
-            </div>
-            <section class="panel panel-default">
-              <table class="table table-hover">
-                <tr> 
-                  <td><a href="${ctx }/question/preview.jsp">教师姓名</a></td>
-                  <td>操作课程</td>
-                  <td>操作章节</td>
-                  <td>操作类型</td>
-                  <td>操作时间</td>
-                </tr>
-                <tr>
-                  <td>张三</td>
-                  <td>WEB</td>
-                  <td>第三章</td>
-                  <td>添加</td>
-                  <td>2016 11 3</td>
-                </tr>
-              </table>
-            </section>
+    	<jsp:include page="aside.jsp"/>
+      	<!-- /.aside -->
+      	<section id="content">
+        	<section class="vbox">
+          		<section class="scrollable padder">
+            		<ul class="breadcrumb no-border no-radius b-b b-light pull-in">
+              			<li><a href="index.html"><i class="fa fa-home"></i> 教务</a></li>
+              			<li class="active">index</li>
+            		</ul>
+            		<div class="m-b-md">
+              			<h3 class="m-b-none">工作台</h3>
+              			<small>Welcome back, username</small>
+            		</div>
+            		<section class="panel panel-default">
+              			<table class="table table-hover">
+                			<tr> 
+                  				<td><a href="${ctx }/question/preview.jsp">教师姓名</a></td>
+                  				<td>操作课程</td>
+                  				<td>操作章节</td>
+                  				<td>操作类型</td>
+                  				<td>操作时间</td>
+                			</tr>
+                			<tr>
+                  				<td>张三</td>
+                  				<td>WEB</td>
+                 				<td>第三章</td>
+                  				<td>添加</td>
+                  				<td>2016 11 3</td>
+                			</tr>
+              			</table>
+            		</section>
+        		</section>
+        	</section>
         </section>
-  </section>
+	</section>
 </section>
 <script src="${ctx }/js/app.v2.js"></script> <!-- Bootstrap --> <!-- App --> <script src="${ctx }/js/charts/easypiechart/jquery.easy-pie-chart.js" cache="false"></script> <script src="${ctx }/js/charts/sparkline/jquery.sparkline.min.js" cache="false"></script> <script src="${ctx }/js/charts/flot/jquery.flot.min.js" cache="false"></script> <script src="${ctx }/js/charts/flot/jquery.flot.tooltip.min.js" cache="false"></script> <script src="${ctx }/js/charts/flot/jquery.flot.resize.js" cache="false"></script> <script src="${ctx }/js/charts/flot/jquery.flot.grow.js" cache="false"></script> <script src="${ctx }/js/charts/flot/demo.js" cache="false"></script> <script src="${ctx }/js/calendar/bootstrap_calendar.js" cache="false"></script> <script src="${ctx }/js/calendar/demo.js" cache="false"></script> <script src="${ctx }/js/sortable/jquery.sortable.js" cache="false"></script>
 </body>
