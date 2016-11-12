@@ -9,6 +9,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
@@ -28,7 +29,7 @@ public class Question {
 	private QuestionType type;
 	private Answer answer;
 	private Set<Recorder> recorders=new HashSet<Recorder>();
-	private Exam exam;
+	private Set<Exam> exams=new HashSet<Exam>();
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
@@ -106,13 +107,17 @@ public class Question {
 		this.recorders = recorders;
 	}
 	
-	@ManyToOne(cascade=CascadeType.ALL)
-	@JoinColumn(name="e_id")
-	public Exam getExam() {
-		return exam;
+	
+	@ManyToMany(
+	        cascade = {CascadeType.PERSIST, CascadeType.MERGE},
+	        mappedBy = "questions",
+	        targetEntity = Exam.class
+	        )
+	public Set<Exam> getExams() {
+		return exams;
 	}
-	public void setExam(Exam exam) {
-		this.exam = exam;
+	public void setExams(Set<Exam> exams) {
+		this.exams = exams;
 	}
 	
 	
