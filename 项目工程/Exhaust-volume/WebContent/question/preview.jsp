@@ -5,25 +5,21 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-	<script src="${ctx }/js/h.js" type="text/javascript"></script>
-	<link rel="stylesheet" href="${ctx }/css/app.v2.css" type="text/css" />
-	<link rel="stylesheet" href="${ctx }/js\calendar/bootstrap_calendar.css" type="text/css" cache="false" />
-	<link href="${ctx }/css/questionBank.css" rel="stylesheet" type="text/css">
-	<script src="${ctx }/js/jquery-1.js"></script>
-	<script src="${ctx }/js/tiku_common.js"></script>
-	<script src="${ctx }/js/zhishidian_choice.js"></script>
-	<script src="${ctx }/js/wb.js" type="text/javascript" charset="utf-8"></script>
-	<script type="text/javascript" src="${ctx}/js/jquery-1.8.3.min.js"></script>
-	<script src="${ctx }/js/quespop.js"></script>
-	<script src="${ctx }/js/questionBank.js"></script>
-	<script src="${ctx }/js/paper.js"></script>
-	<script src="${ctx }/js/tiku_common.js"></script>
+<title>预览试卷</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<script src="${ctx }/exam/h.js" type="text/javascript"></script>
+<link rel="canonical" href="${ctx }/exam/a_002.htm">
+<link href="${ctx }/exam/questionBank.css" rel="stylesheet" type="text/css">
+<script src="${ctx }/exam/jquery-1.js"></script>
+
+<script src="${ctx }/exam/tiku_common.js"></script>
+<script src="${ctx }/exam/zhishidian_choice.js"></script>
+<script src="${ctx }/exam/wb.js" type="text/javascript" charset="utf-8"></script>
+<script src="${ctx }/exam/quespop.js"></script>
+<script src="${ctx }/exam/questionBank.js"></script>
+<script src="${ctx }/exam/paper.js"></script>
+<script src="${ctx }/exam/tiku_common.js"></script>
 <script type="text/javascript">
-$(document).ready(function() {
-	alert("hello, jquery");
-	}); 
 var bound_sub_name = "";
 var is_private = '';
 var groupUrl = '';
@@ -332,7 +328,45 @@ function whether_change_title2(){
 		}
 	});
 }
-
+/*判断是否有迅雷插件*/
+function if_thunder(){
+  if(!+[1,]){
+    //alert("这是ie浏览器");
+    try {
+      new ActiveXObject("ThunderAgent.Agent");
+      return true;
+    }
+    catch (ex) {
+      return false;
+    }
+  } 
+  else{
+    //alert("这不是ie浏览器");
+    for (i=0; i < navigator.plugins.length; i++) {
+      var Cts = navigator.plugins[i].name;
+      if( Cts.indexOf("Thunder")>-1 || Cts.indexOf("XunLei")>-1 )
+      {
+        return true;
+      }
+    }
+    return false;
+  }
+}
+var thunderHas=if_thunder();
+function had_thunder(){
+  if(thunderHas){
+//	迅雷下载弹窗
+//  popTips21();
+//	下载试卷弹窗
+		popTips10();
+    $('.closedHas').click(function(){
+       popTips10();
+    });
+  }
+  else{
+    popTips10();
+  }
+}
 //2015/11/18
 $("#wp_hover1").live('click',function(){
 	$(".wp_value").hide();
@@ -346,11 +380,6 @@ $(".wp_display").live('click',function(){
 	$(".wp_value1").hide();
 	$(".wp_value").hide();
 })
-
-//2015/11/18 end 
-</script>
-<script type="text/javascript">
-
 var groupUrl = '';	// 当前组的地址
 var php_exam = "Exam";
 var sub_name;
@@ -399,7 +428,7 @@ $(document).ready(function(){
 	else if(sjheight>160&&sjheight<190)
 		$('.rightNav').css("bottom","140px");	
 	
-})
+});
 // 报错
 $('.quesdiv').live("mouseover",function(){
   $(this).find('font.reportError').css("display","block");
@@ -414,26 +443,13 @@ $('.reportError').live("mouseover",function(){
 $('.reportError').live("mouseout",function(){
   $(this).css("color","#1887e3");
 });
-
-</script>
-<script type="text/javascript">
 $("table").find("div").each(function(){
-$(this).css("width","auto");
-})
+	$(this).css("width","auto");
+});
 </script>
-<title>预览试卷</title>
 </head>
 <body>
-<section class="vbox">
-  <jsp:include page="/header.jsp"/>
-  <section>
-    <section class="hbox stretch"> <!-- .aside -->
-      <jsp:include page="/aside.jsp"/>
-      <!-- /.aside -->
-      <section id="content">
-        <section class="vbox">
-          <section class="scrollable padder">
-            <div class="box1000">
+        <div class="box1000">
 			<div id="pui_root">
 				<div id="pui_main">
 					<div id="pui_head">
@@ -626,14 +642,13 @@ $(this).css("width","auto");
        											</div>
        										</div>
        									</li>
+       									
 					</div>
 				</div>
 			</div>
 		</div>
-        </section>
-  </section>
-</section>
-<!-- 试卷标题修改 -->
+
+		<!-- 试卷标题修改 -->
 		<div style="display:none;">
 			<div id="mbquesContent1" class="mbPaneltxt">
 				<div class="mbquesTxt">
@@ -738,6 +753,6 @@ $(this).css("width","auto");
 				</div>
 			</div>
 		</div>
-<script src="${ctx }/js/app.v2.js"></script> <!-- Bootstrap --> <!-- App --> <script src="${ctx }/js/charts/easypiechart/jquery.easy-pie-chart.js" cache="false"></script> <script src="${ctx }/js/charts/sparkline/jquery.sparkline.min.js" cache="false"></script> <script src="${ctx }/js/charts/flot/jquery.flot.min.js" cache="false"></script> <script src="${ctx }/js/charts/flot/jquery.flot.tooltip.min.js" cache="false"></script> <script src="${ctx }/js/charts/flot/jquery.flot.resize.js" cache="false"></script> <script src="${ctx }/js/charts/flot/jquery.flot.grow.js" cache="false"></script> <script src="${ctx }/js/charts/flot/demo.js" cache="false"></script> <script src="${ctx }/js/calendar/bootstrap_calendar.js" cache="false"></script> <script src="${ctx }/js/calendar/demo.js" cache="false"></script> <script src="${ctx }/js/sortable/jquery.sortable.js" cache="false"></script>
+</body>
 </body>
 </html>
