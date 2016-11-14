@@ -6,13 +6,10 @@ import java.util.Set;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
-import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
@@ -25,7 +22,7 @@ public class Exam {
 	private Date e_time;
 	private String name;
 	private Teacher teacher;
-	private Set<Question> questions=new HashSet<Question>();
+	private Set<Sort> sorts=new HashSet<Sort>();
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
@@ -57,21 +54,11 @@ public class Exam {
 		this.teacher = teacher;
 	}
 	
-	@ManyToMany(
-	        targetEntity=com.entity.Question.class,
-	        cascade={CascadeType.PERSIST, CascadeType.MERGE},
-	        fetch=FetchType.EAGER
-	    )
-	@JoinTable(
-	        name="examquestionalt",
-	        joinColumns=@JoinColumn(name="e_id"),
-	        inverseJoinColumns=@JoinColumn(name="q_id")
-	    )
-	public Set<Question> getQuestions() {
-		return questions;
+	@OneToMany
+	public Set<Sort> getSorts() {
+		return sorts;
 	}
-	public void setQuestions(Set<Question> questions) {
-		this.questions = questions;
+	public void setSorts(Set<Sort> sorts) {
+		this.sorts = sorts;
 	}
-	
 }

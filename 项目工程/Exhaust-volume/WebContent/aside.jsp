@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<c:set var="ctx" value="${pageContext.request.contextPath}" />
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -27,33 +29,15 @@
               <nav class="nav-primary hidden-xs">
                 <ul class="nav">
                   <li class="active"> <a href="index.html" class="active"> <i class="fa fa-dashboard icon"> <b class="bg-danger"></b> </i> <span>工作台</span> </a> </li>
-                  <li > <a href="#layout" > <i class="fa fa-columns icon"> <b class="bg-warning"></b> </i> <span class="pull-right"> <i class="fa fa-angle-down text"></i> <i class="fa fa-angle-up text-active"></i> </span> <span>教师信息</span> </a>
+                <c:forEach items="${menumap }" var="map">
+                  <li><a href="#layout"><i class="fa fa-columns icon"><b class="bg-warning"></b></i><span class="pull-right"><i class="fa fa-angle-down text"></i><i class="fa fa-angle-up text-active"></i></span> <span>${map.key.name }</span> </a>
                     <ul class="nav lt">
-                      <li > <a href="layout-c.html" > <i class="fa fa-angle-right"></i> <span>教师入职</span> </a> </li>
-                      <li > <a href="layout-r.html" > <i class="fa fa-angle-right"></i> <span>教师离职</span> </a> </li>
-                      <li > <a href="layout-h.html" > <i class="fa fa-angle-right"></i> <span>任课修改</span> </a> </li>
-                      <li > <a href="layout-h.html" > <i class="fa fa-angle-right"></i> <span>基本信息查询</span> </a> </li>
-                      <li > <a href="layout-h.html" > <i class="fa fa-angle-right"></i> <span>添加试题查询</span> </a> </li>
+                    <c:forEach items="${map.value }" var="a">
+                      <li > <a href="layout-c.html" > <i class="fa fa-angle-right"></i> <span>${a.name }</span> </a> </li>
+                    </c:forEach>
                     </ul>
                   </li>
-                  <li > <a href="#uikit" > <i class="fa fa-flask icon"> <b class="bg-success"></b> </i> <span class="pull-right"> <i class="fa fa-angle-down text"></i> <i class="fa fa-angle-up text-active"></i> </span> <span>课程信息</span> </a>
-                    <ul class="nav lt">
-                      <li > <a href="buttons.html" > <i class="fa fa-angle-right"></i> <span>课程录入</span> </a> </li>
-                      <li > <a href="icons.html" > <i class="fa fa-angle-right"></i> <span>删除课程</span> </a> </li>
-                      <li > <a href="grid.html" > <i class="fa fa-angle-right"></i> <span>课程信息修改</span> </a> </li>
-                      <li > <a href="widgets.html" > <i class="fa fa-angle-right"></i> <span>课程信息查询</span> </a> </li>
-                      <li > <a href="components.html" > <i class="fa fa-angle-right"></i> <span>课程相关试题查询</span> </a> </li>
-                    </ul>
-                  </li>
-                  <li > <a href="#pages" > <i class="fa fa-file-text icon"> <b class="bg-primary"></b> </i> <span class="pull-right"> <i class="fa fa-angle-down text"></i> <i class="fa fa-angle-up text-active"></i> </span> <span>章节录入</span> </a>
-                    <ul class="nav lt">
-                      <li > <a href="gallery.html" > <i class="fa fa-angle-right"></i> <span>添加章节</span> </a> </li>
-                      <li > <a href="profile.html" > <i class="fa fa-angle-right"></i> <span>删除章节</span> </a> </li>
-                      <li > <a href="invoice.html" > <i class="fa fa-angle-right"></i> <span>章节信息修改</span> </a> </li>
-                      <li > <a href="intro.html" > <i class="fa fa-angle-right"></i> <span>章节信息查询</span> </a> </li>
-                      <li > <a href="master.html" > <i class="fa fa-angle-right"></i> <span>章节相关试题查询</span> </a> </li>
-                    </ul>
-                  </li>
+                </c:forEach>
                   <li > <a href="mail.html" > <b class="badge bg-danger pull-right">3</b> <i class="fa fa-envelope-o icon"> <b class="bg-primary dker"></b> </i> <span>Message</span> </a> </li>
                   <li > <a href="notebook.html" > <i class="fa fa-pencil icon"> <b class="bg-info"></b> </i> <span>Notes</span> </a> </li>
                 </ul>

@@ -61,5 +61,12 @@ public class Menu {
 	public void setMenus(Set<Menu> menus) {
 		this.menus = menus;
 	}
+	public boolean equals(Object obj) {
+		Menu m=(Menu)obj;
+		if(m.getId()==this.id)
+			return true;
+		else
+			return false;
+	}
 	
 }

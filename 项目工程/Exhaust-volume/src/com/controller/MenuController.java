@@ -15,7 +15,5 @@ public class MenuController {
 	@Resource
 	private MenuService menuService;
 	
-	public String login(HttpServletRequest request){
-		return "index";
-	}
+	
 }

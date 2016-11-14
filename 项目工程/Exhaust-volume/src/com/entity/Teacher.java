@@ -89,7 +89,8 @@ public class Teacher {
 	@ManyToMany(
 	        cascade = {CascadeType.PERSIST, CascadeType.MERGE},
 	        mappedBy = "teachers",
-	        targetEntity = Role.class
+	        targetEntity = Role.class,
+	        fetch=FetchType.EAGER
 	        )
 	public Set<Role> getRoles() {
 		return roles;
