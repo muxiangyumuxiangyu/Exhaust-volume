@@ -1,0 +1,1 @@
+try{JSONP_CALLBACK_46_77({"gap":5,"inviteMsg":"","inviteState":"0","kfext":"0","r":0})}catch(e){new Image().src="http://promreport.crm2.qq.com/wpa/r.gif?type=3&url=" + encodeURIComponent(window.location.href)}
