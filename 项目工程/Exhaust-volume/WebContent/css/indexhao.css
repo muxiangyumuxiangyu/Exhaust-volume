@@ -1,0 +1,33 @@
+.fonts{
+	font-size: 20px;
+	color: black;
+}
+#operation{
+	height: 40px;
+}
+.acolor{
+	color: rgb(137,204,151);
+}
+.checkboxwidth{
+	width: 140px;
+}
+td{
+	width: 300px;
+}
+.look-text{
+	height: 32px;
+    line-height: 32px;
+    padding: 2px 4px;
+    border: 1px solid #ccc;
+    background: #fff;
+    border-radius: 5px;
+}
+#look{
+	margin-right:100px;
+	float: right;
+}
+
+.list-page {
+    padding: 20px 0;
+    text-align: center;
+}
