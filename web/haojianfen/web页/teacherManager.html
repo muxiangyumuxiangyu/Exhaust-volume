@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en" class="app">
+<head>
+<meta charset="utf-8" />
+<title>组卷系统</title>
+<meta name="description" content="app, web app, responsive, admin dashboard, admin, flat, flat ui, ui kit, off screen nav" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+<link rel="stylesheet" href="css/app.v2.css" type="text/css" />
+<link rel="stylesheet" href="js\calendar/bootstrap_calendar.css" type="text/css" cache="false" />
+<link rel="stylesheet" href="css/indexhao.css"/>
+<link rel="stylesheet" href="css/font-awesome.min.css"/>
+<!--[if lt IE 9]> <script src="js/ie/html5shiv.js" cache="false"></script> <script src="js/ie/respond.min.js" cache="false"></script> <script src="js/ie/excanvas.js" cache="false"></script> <![endif]-->
+</head>
+<body>
+ <div class="m-b-md">
+     <h3 class="m-b-none">教师管理</h3>      
+ </div>  
+ <div id="operation">
+	<a href="#" class="fonts"><i class="icon-plus-sign icon-1x"></i>教师录入</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <a href="#" class="fonts"><i class="icon-remove-sign icon-1x"></i>教师离职</a>
+  <div id="look">
+    <span class="fonts">关键字:</span> <input class="look-text" placeholder="关键字" name="keywords" value="" id="" type="text"><input class="btn btn-primary btn2" name="sub" value="查询" type="submit">
+  </div>
+</div>
+ <section class="panel panel-default">
+              <table class="table table-hover">
+                <tr> 
+                  <td class="checkboxwidth"><input name="allIds" value="" type="checkbox">全选/反选</td>
+                  <td>教师工号</td>
+                  <td>操作姓名</td>
+                  <td>邮箱</td>
+                  <td>电话</td>
+                  <td>操作</td>
+                </tr>
+                <tr>
+                  <td class="checkboxwidth"><input name="id[]" value="" type="checkbox"></td>
+                  <td>2014011809</td>
+                  <td>郝建芬</td>
+                  <td>jianfenhao@126.com</td>
+                  <td>15232131135</td>
+                  <td>
+                     <a class="acolor" href="#">修改</a>
+                     <a class="acolor" href="#">删除</a>
+                  </td>
+                </tr>
+              </table>
+   </section>
+   <div class="list-page"> 
+        1条 1/1 页
+   </div>
+</body>
+</html>
