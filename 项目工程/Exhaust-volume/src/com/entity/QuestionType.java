@@ -39,5 +39,11 @@ public class QuestionType {
 	public void setQuestions(Set<Question> questions) {
 		this.questions = questions;
 	}
-	
+	public boolean equals(Object obj) {
+		QuestionType type=(QuestionType)obj;
+		if(type.getId()==this.id)
+			return true;
+		else
+			return false;
+	}
 }
