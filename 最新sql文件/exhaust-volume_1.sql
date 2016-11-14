@@ -1,16 +1,23 @@
 /*
-MySQL Data Transfer
-Source Host: localhost
-Source Database: exhaust-volume
-Target Host: localhost
-Target Database: exhaust-volume
-Date: 2016/11/14 13:56:34
+Navicat MySQL Data Transfer
+
+Source Server         : 127.0.0.1
+Source Server Version : 50551
+Source Host           : localhost:3306
+Source Database       : exhaust-volume
+
+Target Server Type    : MYSQL
+Target Server Version : 50551
+File Encoding         : 65001
+
+Date: 2016-11-14 14:53:03
 */
 
 SET FOREIGN_KEY_CHECKS=0;
 -- ----------------------------
--- Table structure for answer
+-- Table structure for `answer`
 -- ----------------------------
+DROP TABLE IF EXISTS `answer`;
 CREATE TABLE `answer` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `key` text,
@@ -18,178 +25,7 @@ CREATE TABLE `answer` (
 ) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
--- Table structure for chapter
--- ----------------------------
-CREATE TABLE `chapter` (
-  `id` int(10) NOT NULL,
-  `name` varchar(20) DEFAULT NULL,
-  `c_id` int(10) DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
--- ----------------------------
--- Table structure for course
--- ----------------------------
-CREATE TABLE `course` (
-  `id` int(10) NOT NULL AUTO_INCREMENT,
-  `name` varchar(20) DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
--- ----------------------------
--- Table structure for exam
--- ----------------------------
-CREATE TABLE `exam` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `e_time` date DEFAULT NULL,
-  `t_id` int(11) DEFAULT NULL,
-  `name` varchar(255) DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
--- ----------------------------
--- Table structure for examquestionsort
--- ----------------------------
-CREATE TABLE `examquestionsort` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `e_id` int(11) DEFAULT NULL,
-  `q_id` int(11) DEFAULT NULL,
-  `sequence` int(11) DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
--- ----------------------------
--- Table structure for menu
--- ----------------------------
-CREATE TABLE `menu` (
-  `id` int(10) NOT NULL AUTO_INCREMENT,
-  `name` varchar(20) DEFAULT NULL,
-  `parent_id` int(10) DEFAULT NULL,
-  `url` varchar(20) DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=utf8;
-
--- ----------------------------
--- Table structure for operation
--- ----------------------------
-CREATE TABLE `operation` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `name` varchar(50) DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
-
--- ----------------------------
--- Table structure for power
--- ----------------------------
-CREATE TABLE `power` (
-  `id` int(10) NOT NULL AUTO_INCREMENT,
-  `name` varchar(20) DEFAULT NULL,
-  `m_id` int(10) DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=utf8;
-
--- ----------------------------
--- Table structure for question
--- ----------------------------
-CREATE TABLE `question` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `content` text,
-  `chapter_id` int(11) DEFAULT NULL,
-  `type_id` int(11) DEFAULT NULL,
-  `level_id` int(11) DEFAULT NULL,
-  `repeat` int(11) DEFAULT NULL,
-  `flag` int(11) DEFAULT NULL,
-  `option` text,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8;
-
--- ----------------------------
--- Table structure for questionlevel
--- ----------------------------
-CREATE TABLE `questionlevel` (
-  `id` int(10) NOT NULL AUTO_INCREMENT,
-  `name` varchar(20) DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
-
--- ----------------------------
--- Table structure for questiontype
--- ----------------------------
-CREATE TABLE `questiontype` (
-  `id` int(10) NOT NULL AUTO_INCREMENT,
-  `name` varchar(20) DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8;
-
--- ----------------------------
--- Table structure for recorder
--- ----------------------------
-CREATE TABLE `recorder` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `t_id` int(11) DEFAULT NULL,
-  `q_id` int(11) DEFAULT NULL,
-  `description` text,
-  `o_id` int(11) DEFAULT NULL,
-  `time` date DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
--- ----------------------------
--- Table structure for role
--- ----------------------------
-CREATE TABLE `role` (
-  `id` int(10) NOT NULL AUTO_INCREMENT,
-  `name` varchar(20) DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
-
--- ----------------------------
--- Table structure for rolepoweralt
--- ----------------------------
-CREATE TABLE `rolepoweralt` (
-  `id` int(10) NOT NULL AUTO_INCREMENT,
-  `r_id` int(10) DEFAULT NULL,
-  `p_id` int(10) DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=utf8;
-
--- ----------------------------
--- Table structure for teacher
--- ----------------------------
-CREATE TABLE `teacher` (
-  `id` int(10) NOT NULL AUTO_INCREMENT,
-  `name` varchar(20) NOT NULL,
-  `email` varchar(30) DEFAULT NULL,
-  `hiredate` date DEFAULT NULL,
-  `phone` varchar(20) DEFAULT NULL,
-  `address` varchar(30) DEFAULT NULL,
-  `photo` blob,
-  `password` varchar(20) DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
--- ----------------------------
--- Table structure for teachercoursealt
--- ----------------------------
-CREATE TABLE `teachercoursealt` (
-  `id` int(10) NOT NULL AUTO_INCREMENT,
-  `t_id` int(10) DEFAULT NULL,
-  `c_id` int(10) DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
--- ----------------------------
--- Table structure for teacherrolealt
--- ----------------------------
-CREATE TABLE `teacherrolealt` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `r_id` int(11) DEFAULT NULL,
-  `t_id` int(11) DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
--- ----------------------------
--- Records 
+-- Records of answer
 -- ----------------------------
 INSERT INTO `answer` VALUES ('1', 'A');
 INSERT INTO `answer` VALUES ('2', 'AB');
@@ -201,6 +37,83 @@ INSERT INTO `answer` VALUES ('7', 'final 用于声明属性，方法和类，分
 INSERT INTO `answer` VALUES ('8', '18');
 INSERT INTO `answer` VALUES ('9', '假设有一个以上结点的huffman树中有度为1的结点A,其子结点为B,则我们可以将A.B合并为一个结点，则B以下的叶子结点的路径长度减小，树的带权路径长度减小。新树的WPL小于huffman树，这与huffman树的定义是相矛盾的。故得证');
 INSERT INTO `answer` VALUES ('10', 'package test;   import java.util.ArrayList; import java.util.List;   public class ListOpreation {  public static void main(String[] args){   String s = \"ABCD\";    List<String> list = list(s,\"\");   System.out.println(list.size());   System.out.println(list);   }     public static List<String> list(String base,String buff){   List<String> result = new ArrayList<String>();   if(base.length()<=0){    result.add(buff);     System.out.println(result.toString()+\"&\");   }    for(int i=0;i<base.length();i++){    List<String> temp  =  list(new  StringBuilder(base).deleteCharAt(i).toString(),buff+base.charAt(i));              result.addAll(temp);    }    for(int i=0;i<base.length();i++){    System.out.println(new  StringBuilder(base).deleteCharAt(i).toString()+\"=\");     System.out.println(base.charAt(i)+\"*\");    System.out.println(buff+\"#\");   }    return result;      }  }');
+
+-- ----------------------------
+-- Table structure for `chapter`
+-- ----------------------------
+DROP TABLE IF EXISTS `chapter`;
+CREATE TABLE `chapter` (
+  `id` int(10) NOT NULL,
+  `name` varchar(20) DEFAULT NULL,
+  `c_id` int(10) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of chapter
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for `course`
+-- ----------------------------
+DROP TABLE IF EXISTS `course`;
+CREATE TABLE `course` (
+  `id` int(10) NOT NULL AUTO_INCREMENT,
+  `name` varchar(20) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of course
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for `exam`
+-- ----------------------------
+DROP TABLE IF EXISTS `exam`;
+CREATE TABLE `exam` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `e_time` date DEFAULT NULL,
+  `t_id` int(11) DEFAULT NULL,
+  `name` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of exam
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for `examquestionsort`
+-- ----------------------------
+DROP TABLE IF EXISTS `examquestionsort`;
+CREATE TABLE `examquestionsort` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `e_id` int(11) DEFAULT NULL,
+  `q_id` int(11) DEFAULT NULL,
+  `sequence` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of examquestionsort
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for `menu`
+-- ----------------------------
+DROP TABLE IF EXISTS `menu`;
+CREATE TABLE `menu` (
+  `id` int(10) NOT NULL AUTO_INCREMENT,
+  `name` varchar(20) DEFAULT NULL,
+  `parent_id` int(10) DEFAULT NULL,
+  `url` varchar(20) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of menu
+-- ----------------------------
 INSERT INTO `menu` VALUES ('1', '教师管理', null, null);
 INSERT INTO `menu` VALUES ('2', '教师入职', '1', null);
 INSERT INTO `menu` VALUES ('3', '教师离职', '1', null);
@@ -220,9 +133,38 @@ INSERT INTO `menu` VALUES ('16', '生成试卷规则', null, null);
 INSERT INTO `menu` VALUES ('17', '组卷', null, null);
 INSERT INTO `menu` VALUES ('18', '自动组卷', '17', null);
 INSERT INTO `menu` VALUES ('19', '手动组卷', '17', null);
+
+-- ----------------------------
+-- Table structure for `operation`
+-- ----------------------------
+DROP TABLE IF EXISTS `operation`;
+CREATE TABLE `operation` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(50) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of operation
+-- ----------------------------
 INSERT INTO `operation` VALUES ('1', '增加');
 INSERT INTO `operation` VALUES ('2', '修改');
 INSERT INTO `operation` VALUES ('3', '删除');
+
+-- ----------------------------
+-- Table structure for `power`
+-- ----------------------------
+DROP TABLE IF EXISTS `power`;
+CREATE TABLE `power` (
+  `id` int(10) NOT NULL AUTO_INCREMENT,
+  `name` varchar(20) DEFAULT NULL,
+  `m_id` int(10) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of power
+-- ----------------------------
 INSERT INTO `power` VALUES ('1', '教师管理', '1');
 INSERT INTO `power` VALUES ('2', '教师入职', '2');
 INSERT INTO `power` VALUES ('3', '教师离职', '3');
@@ -242,6 +184,26 @@ INSERT INTO `power` VALUES ('16', '生成试卷规则', '16');
 INSERT INTO `power` VALUES ('17', '组卷', '17');
 INSERT INTO `power` VALUES ('18', '自动组卷', '18');
 INSERT INTO `power` VALUES ('19', '手动组卷', '19');
+
+-- ----------------------------
+-- Table structure for `question`
+-- ----------------------------
+DROP TABLE IF EXISTS `question`;
+CREATE TABLE `question` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `content` text,
+  `chapter_id` int(11) DEFAULT NULL,
+  `type_id` int(11) DEFAULT NULL,
+  `level_id` int(11) DEFAULT NULL,
+  `repeat` int(11) DEFAULT NULL,
+  `flag` int(11) DEFAULT NULL,
+  `option` text,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of question
+-- ----------------------------
 INSERT INTO `question` VALUES ('1', '编译Java  Application 源程序文件将产生相应的字节码文件，这些字节码文件的扩展名为(  )', '1', '1', '1', null, null, ' A.    .java  B. .C++ C. .C  D. .CLASS');
 INSERT INTO `question` VALUES ('2', '在Java  Applet程序用户自定义的Applet子类中，一般需要重载父类的(      )方法来完成一些画图操作。', '1', '2', '1', null, null, ' A.   start( ) B. end() C.do() D.open()');
 INSERT INTO `question` VALUES ('3', '开发与运行Java程序需要经过的三个主要步骤为      、            \r\n 和      \r\n  。', '1', '3', '1', null, null, null);
@@ -252,10 +214,38 @@ INSERT INTO `question` VALUES ('7', 'final, finally, finalize的区别。', '1',
 INSERT INTO `question` VALUES ('8', '（1）-23+（-37）-（-12）\r\n+45\r\n（1）-23+（-37）-（-12）\r\n+45\r\n；', '1', '8', '1', null, null, null);
 INSERT INTO `question` VALUES ('9', '证明:在结点数多于1的哈夫曼树中不存在度为1的结点', '1', '9', '1', null, null, null);
 INSERT INTO `question` VALUES ('10', '写一个函数，例如：给你的 a b c 则输出 abc  acb  bac  bca  cab  cba', '1', '10', '1', null, null, null);
+
+-- ----------------------------
+-- Table structure for `questionlevel`
+-- ----------------------------
+DROP TABLE IF EXISTS `questionlevel`;
+CREATE TABLE `questionlevel` (
+  `id` int(10) NOT NULL AUTO_INCREMENT,
+  `name` varchar(20) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of questionlevel
+-- ----------------------------
 INSERT INTO `questionlevel` VALUES ('1', '记忆');
 INSERT INTO `questionlevel` VALUES ('2', '理解');
 INSERT INTO `questionlevel` VALUES ('3', '简单应用');
 INSERT INTO `questionlevel` VALUES ('4', '综合应用');
+
+-- ----------------------------
+-- Table structure for `questiontype`
+-- ----------------------------
+DROP TABLE IF EXISTS `questiontype`;
+CREATE TABLE `questiontype` (
+  `id` int(10) NOT NULL AUTO_INCREMENT,
+  `name` varchar(20) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of questiontype
+-- ----------------------------
 INSERT INTO `questiontype` VALUES ('1', '单项选择');
 INSERT INTO `questiontype` VALUES ('2', '多项选择');
 INSERT INTO `questiontype` VALUES ('3', '填空');
@@ -266,8 +256,55 @@ INSERT INTO `questiontype` VALUES ('7', '论述');
 INSERT INTO `questiontype` VALUES ('8', '计算');
 INSERT INTO `questiontype` VALUES ('9', '证明');
 INSERT INTO `questiontype` VALUES ('10', '其他');
+
+-- ----------------------------
+-- Table structure for `recorder`
+-- ----------------------------
+DROP TABLE IF EXISTS `recorder`;
+CREATE TABLE `recorder` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `t_id` int(11) DEFAULT NULL,
+  `q_id` int(11) DEFAULT NULL,
+  `description` text,
+  `o_id` int(11) DEFAULT NULL,
+  `time` date DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of recorder
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for `role`
+-- ----------------------------
+DROP TABLE IF EXISTS `role`;
+CREATE TABLE `role` (
+  `id` int(10) NOT NULL AUTO_INCREMENT,
+  `name` varchar(20) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of role
+-- ----------------------------
 INSERT INTO `role` VALUES ('1', '教务');
 INSERT INTO `role` VALUES ('2', '教师');
+
+-- ----------------------------
+-- Table structure for `rolepoweralt`
+-- ----------------------------
+DROP TABLE IF EXISTS `rolepoweralt`;
+CREATE TABLE `rolepoweralt` (
+  `id` int(10) NOT NULL AUTO_INCREMENT,
+  `r_id` int(10) DEFAULT NULL,
+  `p_id` int(10) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of rolepoweralt
+-- ----------------------------
 INSERT INTO `rolepoweralt` VALUES ('1', '1', '1');
 INSERT INTO `rolepoweralt` VALUES ('2', '1', '2');
 INSERT INTO `rolepoweralt` VALUES ('3', '1', '3');
@@ -287,3 +324,56 @@ INSERT INTO `rolepoweralt` VALUES ('16', '1', '16');
 INSERT INTO `rolepoweralt` VALUES ('17', '2', '17');
 INSERT INTO `rolepoweralt` VALUES ('18', '2', '18');
 INSERT INTO `rolepoweralt` VALUES ('19', '2', '19');
+
+-- ----------------------------
+-- Table structure for `teacher`
+-- ----------------------------
+DROP TABLE IF EXISTS `teacher`;
+CREATE TABLE `teacher` (
+  `id` int(10) NOT NULL AUTO_INCREMENT,
+  `name` varchar(20) NOT NULL,
+  `email` varchar(30) DEFAULT NULL,
+  `hiredate` date DEFAULT NULL,
+  `phone` varchar(20) DEFAULT NULL,
+  `address` varchar(30) DEFAULT NULL,
+  `photo` blob,
+  `password` varchar(20) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=123457 DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of teacher
+-- ----------------------------
+INSERT INTO `teacher` VALUES ('123456', 'admin', null, null, null, null, null, 'admin');
+
+-- ----------------------------
+-- Table structure for `teachercoursealt`
+-- ----------------------------
+DROP TABLE IF EXISTS `teachercoursealt`;
+CREATE TABLE `teachercoursealt` (
+  `id` int(10) NOT NULL AUTO_INCREMENT,
+  `t_id` int(10) DEFAULT NULL,
+  `c_id` int(10) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of teachercoursealt
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for `teacherrolealt`
+-- ----------------------------
+DROP TABLE IF EXISTS `teacherrolealt`;
+CREATE TABLE `teacherrolealt` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `r_id` int(11) DEFAULT NULL,
+  `t_id` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of teacherrolealt
+-- ----------------------------
+INSERT INTO `teacherrolealt` VALUES ('1', '1', '123456');
+INSERT INTO `teacherrolealt` VALUES ('2', '2', '123456');
