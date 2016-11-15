@@ -22,6 +22,7 @@ public class Exam {
 	private Date e_time;
 	private String name;
 	private Teacher teacher;
+	private String title;
 	private Set<Sort> sorts=new HashSet<Sort>();
 	
 	@Id
@@ -61,4 +62,11 @@ public class Exam {
 	public void setSorts(Set<Sort> sorts) {
 		this.sorts = sorts;
 	}
+	public String getTitle() {
+		return title;
+	}
+	public void setTitle(String title) {
+		this.title = title;
+	}
+	
 }

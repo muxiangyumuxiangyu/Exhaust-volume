@@ -8,7 +8,7 @@ import javax.persistence.Table;
 @Table(name="answer")
 public class Answer {
 	private int id;
-	private String key;
+	private String keyses;
 	
 	@Id
 	public int getId() {
@@ -17,10 +17,10 @@ public class Answer {
 	public void setId(int id) {
 		this.id = id;
 	}
-	public String getKey() {
-		return key;
+	public String getKeyses() {
+		return keyses;
 	}
-	public void setKey(String key) {
-		this.key = key;
+	public void setKeyses(String keyses) {
+		this.keyses = keyses;
 	}
 }

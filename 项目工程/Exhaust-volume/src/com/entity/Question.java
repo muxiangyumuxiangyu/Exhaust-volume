@@ -20,7 +20,7 @@ import javax.persistence.Table;
 public class Question {
 	private int id;
 	private String content;
-	private int repeat;
+	private int repeats;
 	private int flag;
 	private String A;
 	private String B;
@@ -80,11 +80,11 @@ public class Question {
 	public void setContent(String content) {
 		this.content = content;
 	}
-	public int getRepeat() {
-		return repeat;
+	public int getRepeats() {
+		return repeats;
 	}
-	public void setRepeat(int repeat) {
-		this.repeat = repeat;
+	public void setRepeats(int repeats) {
+		this.repeats = repeats;
 	}
 	public int getFlag() {
 		return flag;

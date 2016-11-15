@@ -39,14 +39,11 @@
               			<table class="table table-hover">
                 			<tr> 
                   				<td><a href="${ctx }/question/preview.jsp">教师姓名</a></td>
-                  				<td>操作课程</td>
-                  				<td>操作章节</td>
-                  				<td>操作类型</td>
-                  				<td>操作时间</td>
+                  				<td>添加成功</td>
                 			</tr>
                 			<tr>
                   				<td><a href="${ctx}/question/list.jsp">张三</a></td>
-                  				<td><a href="${ctx }/question/test">WEB</a></td>
+                  				<td>WEB</td>
                  				<td>第三章</td>
                   				<td>添加</td>
                   				<td>2016 11 3</td>

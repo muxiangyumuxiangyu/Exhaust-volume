@@ -1,4 +1,4 @@
-﻿<%@ page language="java" contentType="text/html; charset=UTF-8"
+<%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <c:set var="ctx" value="${pageContext.request.contextPath}" />
@@ -37,7 +37,7 @@
             		</div>
             		<section class="panel panel-default">
               			<table class="table table-hover">
-                			<tr> 
+                			<!--<tr> 
                   				<td><a href="${ctx }/question/preview.jsp">教师姓名</a></td>
                   				<td>操作课程</td>
                   				<td>操作章节</td>
@@ -45,12 +45,56 @@
                   				<td>操作时间</td>
                 			</tr>
                 			<tr>
-                  				<td><a href="${ctx}/question/list.jsp">张三</a></td>
-                  				<td><a href="${ctx }/question/test">WEB</a></td>
+                  				<td>张三</td>
+                  				<td>WEB</td>
                  				<td>第三章</td>
                   				<td>添加</td>
                   				<td>2016 11 3</td>
-                			</tr>
+                			</tr>-->
+                			<form action="${ctx}/question/findbyid" }>
+                			<table>
+                			<tr>
+                			<td>查询</td>
+                			<td>
+                			<input type="text" name="content"></td>
+                			<td><input type="submit" value="find"></td></tr>
+                			</table>
+                			</form>
+                			<form action="${ctx}/question/add" method=post>
+                			<table>
+				<tr height="80">
+					<td width="100">章节：</td>
+					<select name=chapter>
+					<option value="1">第一章</option>
+                    <option value="2">第二章</option>			
+					</select>
+
+
+					
+				</tr>
+				<tr height="80">
+					<td>题型：</td>
+					<td><input type="text" name="QuestionType" size="40" id="QuestionType" /></td>
+					
+				</tr>
+				<tr height="80">
+					<td>难易程度：</td>
+					<td><input type="text" name="QuestionLevel" size="40" id="QuestionLevel" /></td>
+					
+				</tr>
+				<tr height="80">
+				<td>题干：</td>
+				<td><textarea rows="10" cols="30" name="content"></textarea></td>
+				</tr>
+				<tr height="80">
+				<td>答案：</td>
+				<td><textarea rows="10" cols="30" name="answer"></textarea></td>
+				</tr>
+				<tr height="80">
+					<td align="center" colspan="3"><input type="submit" value="添加"></td>
+				</tr>
+			</table></form>
+			
               			</table>
             		</section>
         		</section>

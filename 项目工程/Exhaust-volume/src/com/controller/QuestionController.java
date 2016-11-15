@@ -1,6 +1,5 @@
 package com.controller;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -24,6 +23,15 @@ public class QuestionController {
 	@Resource
 	private QuestionService questionService;
 	
+	@RequestMapping("test")
+	public String test(HttpServletRequest request){
+		Map<Question,Answer> map=questionService.test();
+		Question q=map.keySet().iterator().next();
+		request.setAttribute("question", q);
+		request.setAttribute("answer", map.get(q));
+		return "question/test";
+	}
+	
 	public String previewExam(HttpServletRequest request,HttpSession session){
 		/**
 		 * 生成试卷的一些规则
@@ -45,6 +53,28 @@ public class QuestionController {
 		 */
 		session.setAttribute("questionmap", questionmap);
 		return "question/preview";
+	}
+	@RequestMapping("add")
+	public String addQuestionImp(HttpServletRequest request){
+		String schapter=request.getParameter("chapter");
+		Integer chapter=new Integer(schapter);
+		String stype=request.getParameter("QuestionType");
+		Integer type=new Integer(stype);
+		String slevel=request.getParameter("QuestionLevel");
+		Integer level=new Integer(slevel);
+		String content =request.getParameter("content");
+		String answer=request.getParameter("answer");
+		System.out.println("正常");
+		questionService.addQuestion(content, chapter, type, level, answer);
+		return "question/success";
+	}
+	@RequestMapping("findbyid")
+	public  void findQuestionByContent(HttpServletRequest request){
+		String scontent=request.getParameter("content");
+		List list= questionService.findQuestionByContent(scontent);
+		System.out.print("duandian");
+		
+		
 	}
 	
 }
