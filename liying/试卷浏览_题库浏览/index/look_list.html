@@ -1,0 +1,1938 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0029)http://www.yitiku.cn/shijuan/ -->
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:wb="">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<meta name="viewport" content="width =1080,initial-scale=0.9, user-scalable=yes">
+	<meta property="wb:webmaster" content="613fc8dc16fb3215">
+	
+	<link href="css/test_look/questionBank.css" rel="stylesheet" type="text/css">
+	<script src="js/test_look/jquery-1.7.1.js"></script>
+	<script src="js/test_look/tiku_common.js"></script>
+	<script src="js/test_look/zhishidian_choice.js"></script>
+	<script src="js/test_look/guide.js"></script>
+	<script src="js/test_look/look_list_js.js"></script>
+	<script src="js/test_look/wb.js" type="text/javascript" charset="utf-8"></script>
+	<title>试卷预览</title>
+	<meta name="description" content="通过手工组卷，试题库或者智能组卷可以把试题添加到我的试卷中，便于进行对试卷进行下载，打印和保存。">
+	<style type="text/css">
+		.css_a1{vertical-align:middle;}
+		.title_css img{vertical-align:middle;}
+		.quesdiv font.reportError{ top: 5px;}
+		.quesdiv div{overflow:hidden;width:782px;}
+		.quesTxt li .fl{width: 708px;}
+		.quesbox .quesTxtfno{float: none;}
+		.questypehead{min-height: 24px;}
+	</style>
+	<style type="text/css">
+		#skygqOverlay{position:fixed;z-index:2000;left:0;top:0;width:100%;height:100%;background:black;}.wrap_out{padding:10px;background:url("/images/layer_bg.png") repeat scroll 0 0 transparent;position:fixed;z-index:2001;}.wrap_in{background:#fff;}.wrap_bar{width:100%;height:32px;}.wrap_title{height:32px;line-height:32px;background-color:#1887e3;}.wrap_title span{position:relative;margin-left:10px;cursor:text;color:#fff;}.wrap_body{display:inline-block;padding-left:11px;}.wrap_close{position:absolute;right:20px;top:18px;width:18px;height:17px;text-indent:-10em;overflow:hidden;background:url("/images/wrap_close.png") no-repeat 0px 2px;cursor:pointer;}.wrap_close:hover{text-decoration:none;color:#f30;}.submit_btn{display:inline-block;padding:3px 12px 1.99px;background:#486aaa;border:1px solid;border-color:#a0b3d6 #34538b #34538b #a0b3d6;color:#f3f3f3;line-height:16px;cursor:pointer;overflow:visible;}.submit_btn:hover{text-decoration:none;color:#ffffff;}.cancel_btn{display:inline-block;padding:3px 12px 1.99px;background:#eee;border:1px solid;border-color:#f0f0f0 #bbb #bbb #f0f0f0;color:#333;line-height:16px;cursor:pointer;overflow:visible;}
+	</style>
+	<script src="js/test_look/share.js"></script>
+	<link rel="stylesheet" href="css/test_look/slide_share.css">
+</head>
+<body>
+<script>/*收藏代码*/
+	function AddFavorite(sURL, sTitle)
+	{
+		try
+		{
+			window.external.addFavorite(sURL, sTitle);
+		}
+		catch (e)
+		{
+			try
+			{
+				window.sidebar.addPanel(sTitle, sURL, "");
+			}
+			catch (e)
+			{
+				alert("加入收藏失败，请使用Ctrl+D进行添加");
+			}
+		}
+	}
+
+
+
+	/**/
+	/**/
+	/**/
+	function abx(url,sub_id){
+//alert(url);
+//alert(sub_id);
+$.ajax({
+	type: "POST",
+	url: "/Tiku/ExamDiy/ajax_bar_2",
+	dataType: "html",
+	data: {sub_id:sub_id},
+	success: function(data){
+		if(data=='2'){
+			$("#mbquesContent999").find("#abcd123").attr("href",url);
+			$("#mbquesContent999").find("#abc1234").attr("nnn",url);
+			showTipsWindown("提示", 'mbquesContent999', 300, 90);
+		}
+		else{
+			location.href=url;
+		}
+	}
+});
+}
+function uuu9(thi){
+	var url = $('#abc1234').attr('nnn');
+	$.ajax({
+		type: "POST",
+		url: "/Tiku/ExamDiyfk/clear_qk",
+		dataType: "html",
+		success: function(data){
+			location.href=url;
+		}
+	});
+}
+
+$(function(){
+
+	$.ajax({
+		type: "POST",
+		url: "/Tiku/Public/get_ajax_user_name",
+		dataType: "html",
+		success: function(data){
+			$("div.fr .topLogin").eq(0).before(data);
+		}
+	});
+
+//daohang
+});
+
+
+function sgfagfds(){
+//showTipsWindown("提示", 'userLoginContent', 300, 90);
+$("#mbloginContent22").parent().show();
+}
+
+
+
+
+
+//chrome浏览器判断
+var isChrome;
+if(isChrome == window.google && window.chrome){
+	$('.fullChrome').hide();
+}
+else{
+	$('.fullChrome').show();
+}
+$('.closeTips').click(function() {
+	$(this).parent('.chromeTips').parent('.fullChrome').animate({'height':'0'},500);
+	$(this).parent('.chromeTips').hide();
+});
+
+
+
+</script>
+<!-- 右侧悬浮部分 -->
+<!-- 右侧悬浮部分 -->
+<div class="box1000">
+	<div id="pui_root">
+		<!--装订线-->
+		<div id="pui_seal" title="装订线" style="color: rgb(0, 0, 0); cursor: pointer; background-position: initial initial; background-repeat: initial initial;filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3)">
+			<div id="pui_sealinput">
+				<table width="100%" border="0" cellpadding="0" cellspacing="0">
+					<tbody>
+						<tr>
+							<td class="pui_sealblock" style="background-position: initial initial; background-repeat: initial initial;"></td>
+							<td align="center">
+								<div id="pui_sealinputtext" style="width: auto;">学校:___________&nbsp;&nbsp;班级：___________&nbsp;&nbsp;姓名：___________&nbsp;&nbsp;考号：___________</div>
+							</td>
+							<td class="pui_sealblock" style="background-position: initial initial; background-repeat: initial initial;">
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<div id="pui_sealline" style="font-size:12px;height:30px;line-height:30px;">密&nbsp;&nbsp;&nbsp;封&nbsp;&nbsp;&nbsp;线&nbsp;&nbsp;&nbsp;内&nbsp;&nbsp;&nbsp;不&nbsp;&nbsp;&nbsp;要&nbsp;&nbsp;&nbsp;答&nbsp;&nbsp;&nbsp;题</div>
+		</div>
+		<!--装订线-->
+		<div id="pui_main">
+			<div id="pui_head" class="guideStep">
+				<div id="pui_marktag" title="保密标记">绝密★启用前</div>
+				<div id="pui_title" style="border: 1px solid rgb(255, 255, 255); background: rgb(255, 255, 255);">
+					<div class="pui_titlemenu" style="display: none;">
+						<a class="amendquestype mbquesBtn1" style="display: none;">修改</a>
+					</div>
+					<div id="pui_maintitle" title="试卷主标题">高中数学期末考试卷(难度系数：0.70-0.56)-20161112</div>
+					<div id="pui_subtitle" title="试卷副标题">高中数学</div>
+				</div>
+				<div class="pui_noticeBox" style="border: 1px solid rgb(255, 255, 255); background: rgb(255, 255, 255);">
+					<div class="pui_noticemenu" style="display: none;">
+						<a class="amendquestype mbquesBtn2" style="display: none;">修改</a>
+					</div>
+					<div id="pui_notice" title="考生注意事项栏">
+						<div id="pui_noticetip">注意事项：</div>
+						<div id="pui_noticetext">
+							本试卷共有6道试题
+							<span id="zongfen_1"></span>
+						</div>
+					</div>
+				</div>
+				<div class="guideBox" id="guideBox51">
+					<div id="tipbar51" class="tipbar">
+					</div>
+					<div id="step51" class="tipbox">
+						<ol class="progress progress4">
+							<li class="on"></li>
+							<li></li>
+							<li></li>
+							<li></li>
+						</ol>
+						<div class="tipword"></div>
+						<span onclick="hideTip5()" class="tipboxBtn"></span>
+						<span onclick="nextStep(2)" class="tipboxNextbtn"></span>
+					</div>
+				</div>
+			</div>
+			<div id="pui_body" class="guideStep">
+				<div class="guideBox" id="guideBox52">
+					<div id="tipbar52" class="tipbar">
+					</div>
+					<div id="step52" class="tipbox">
+						<ol class="progress progress4">
+							<li></li>
+							<li class="on"></li>
+							<li></li>
+							<li></li>
+						</ol>
+						<div class="tipword"></div>
+						<span onclick="hideTip5()" class="tipboxBtn"></span>
+						<span onclick="nextStep(3)" class="tipboxNextbtn"></span>
+					</div>
+				</div>
+				<div class="guideBox" id="guideBox53">
+					<div id="tipbar53" class="tipbar"></div>
+					<div id="step53" class="tipbox">
+						<ol class="progress progress4">
+							<li></li>
+							<li></li>
+							<li class="on"></li>
+							<li></li>
+						</ol>
+						<div class="tipword">
+						</div>
+						<span onclick="hideTip5()" class="tipboxBtn"></span>
+						<span onclick="nextStep(4)" class="tipboxNextbtn"></span>
+					</div>
+				</div>
+				<div class="guideBox" id="guideBox54">
+					<div id="tipbar54" class="tipbar">
+					</div>
+					<div id="step54" class="tipbox">
+						<ol class="progress progress4">
+							<li></li>
+							<li></li>
+							<li></li>
+							<li class="on"></li>
+						</ol>
+						<div class="tipword"></div>
+						<span onclick="hideTip5()" class="tipboxBtn" style="left:117px;"></span>
+					</div>
+				</div>
+				<div class="paperpart" id="paperpart1">
+					<!--第一卷-->
+					<div class="parthead" id="parthead1" style="border: 1px solid rgb(255, 255, 255); background: rgb(255, 255, 255);">
+						<div class="partmenu" style="display: none;">
+							<a class="amendquestype mbquesBtn3" style="display: none;">修改</a>
+						</div>
+						<div class="partheadbox" id="partheadbox1"><div class="partname" id="partname1">第I卷（选择题）</div>
+						<div class="partnote" id="partnote1">本试卷第一部分共有3道试题。</div>
+					</div>
+				</div>
+				<div class="partbody" id="part1">
+					<div class="questype" id="questype1_1" t_id="1">
+						<div class="questypehead" id="questypehead1_1" style="border: 1px solid rgb(255, 255, 255); background: rgb(255, 255, 255);">
+							<div class="questypemenu" style="display: none;">
+								<a class="amendquestype mbquesBtn4" style="display: none;">修改</a>
+								<a class="amendquestype typemovedn" style="display: none;">下移</a>
+								<a class="amendquestype typemoveup" style="display: none;">上移</a>
+							</div>
+							<div class="questypeheadbox" id="questypeheadbox1_1">
+								<table border="0" width="100%" cellpadding="0" cellspacing="0">
+									<tbody>
+										<tr>
+											<td>
+												<div class="questypetitle" style="width: auto;">
+													<span class="questypeindex">
+														<b>一、</b>
+													</span>
+													<span class="questypename" id="questypename1_1" name="1" abc="1">单选题（共3小题）</span>
+												</div>
+											</td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+						</div>
+						<div class="questypebody">
+							<ul class="dragsort-ver">
+								<li id="395279" t_id="1" class="ajax_li" exam_need="1,395279">
+									<div class="quesbox" style="border: 1px solid rgb(255, 255, 255);">
+										<div class="quesopmenu" style="display: none;">
+											<a name="my_baocuo" href="javascript:;" is_shijuan="1" class="icon3 exam_395279" id="exam_395279" exam_id="395279" rel="nofollow">报错</a>
+											<a class="answer">答案</a><a class="del">删除</a><a class="replace">换题</a><a class="moveup" style="display: none;">上移</a>
+											<a class="movedn">下移</a>
+											<input type="hidden" name="sub_name" value="高中数学">
+											<input type="hidden" name="tixing_name" value="单选题">
+										</div>
+										<div class="quesdiv">
+											
+											<div class="fck007">
+												<span class="quesindex" style="background-color: rgb(255, 255, 255);">
+													<b>1.</b>
+												</span>
+												<span class="tips"></span>
+												<span class="title_css">正方体ABCD-A1B1C1D1的各个顶点与各棱的中点共20个点中，任取两点连成直线，在
+													<br>这些直线中任取一条，它与对角线BD1垂直的概率为（&nbsp;&nbsp;&nbsp;）</span>
+													<div>
+														<span class="em2" style="float:left;line-height:18px;font-size:14px;padding-right:30px;">
+															A．<img src="images/68bd770af58cf1f1922022f75e750881.png" style="vertical-align:middle;">
+														</span>
+														<span class="em2" style="float:left;line-height:18px;font-size:14px;padding-right:30px;">
+															B．<img src="images/8004c7e63d3f9a160849988dc053926b.png" style="vertical-align:middle;">
+														</span>
+														<span class="em2" style="float:left;line-height:18px;font-size:14px;padding-right:30px;">
+															C．<img src="images/d28fc3be9adee4872bb8800dfdc7b210.png" style="vertical-align:middle;">
+														</span>
+														<span class="em2" style="float:left;line-height:18px;font-size:14px;padding-right:30px;">
+															D．<img src="images/e57b6879297c7aad7cecec9a6d7fd745.png" style="vertical-align:middle;">
+														</span>
+													</div>
+												</div>
+												<div class="quesTxt quesTxt2 quesTxtfno" style="display: none;">
+													<ul>
+														<li>
+															<font>章节</font>
+															<div class="fl">
+																<a href="javascript:;">古典概型</a>
+															</div>
+														</li>
+													</ul>
+													<ul>
+														<!--                            <li><font>解题思路</font><div class="editorBox title_css"></div></li>-->
+														<li>
+															<font>试题解析</font>
+															<div class="editorBox title_css">
+																考点：等可能事件的概率；组合及组合数公式．<br>
+																分析：由题意知本题是一个古典概型，试验发生包含的所有事件是从20个点中取2个，但每条棱上3点任取2个是重复的，满足条件的事件是要与BD1垂直，则应与面A1DC1平行或在其面内，与A1C1平行或重合的有9条，根据古典概型公式得到结果．
+																<br>
+																解答：解：由题意知本题是一个古典概型，<br>从20个点中取2个，共
+																<img src="images/3e7fdfcedcfa1f1dfae716b6f49f9d1b.png" style="vertical-align:middle;">=190，
+																<br>
+																但每条棱上3点任取2个是重复的，<br>
+																∴分母为190-12<img src="images/16645181d28a3ef953333e622fc07384.png" style="vertical-align:middle;">+12=166，
+																<br>
+																要与BD1垂直，则应与面A1DC1平行或在其面内，与A1C1平行或重合的有9条，共27条，
+																<br>
+																∴P=
+																<img src="images/d28fc3be9adee4872bb8800dfdc7b210.png" style="vertical-align:middle;">
+																．<br>
+																故选C．
+																<br>点评：古典概型和几何概型是我们学习的两大概型，古典概型要求能够列举出所有事件和发生事件的个数，而不能列举的就是几何概型，几何概型的概率的值是通过长度、面积、和体积、的比值得到．
+															</div>
+														</li>
+														<li class="noborder title_css">
+															<font>答案</font>
+															<b class="choiceB">C</b>
+														</li>
+													</ul>
+												</div>
+											</div>
+										</div>
+									</li>
+									<li id="829047" t_id="1" class="ajax_li" exam_need="1,829047">
+										<div class="quesbox" style="border: 1px solid rgb(255, 255, 255);">
+											<div class="quesopmenu" style="display: none;">
+												<a name = "my_baocuo" href="javascript:;" is_shijuan="1" class="icon3 exam_829047" id="exam_829047" exam_id="829047" rel="nofollow">报错</a>
+												<a class="answer">答案</a>
+												<a class="del">删除</a>
+												<a class="replace">换题</a>
+												<a class="moveup">上移</a>
+												<a class="movedn">下移</a>
+												<input type="hidden" name="sub_name" value="高中数学">
+												<input type="hidden" name="tixing_name" value="单选题">
+											</div>
+											<div class="quesdiv">
+												<font class="reportError" sub_id="5" exam_id="829047" style="display: none;">报错</font>
+												<div class="fck007">
+													<span class="quesindex" style="background-color: rgb(255, 255, 255);">
+														<b>2.</b>
+													</span>
+													<span class="tips"></span>
+													<span class="title_css">
+														<div align="left" style="text-align:left;display:inline">
+															<span>在</span>
+															<span style="; ">
+																<img width="46" height="19" src="images/1411114457zUgK9lGZ0hAgHUjXX8OH.gif">
+															</span>
+															<span>，内角</span>
+															<span style="; ">
+																<img width="49" height="21" src="images/1411114457ClGbcQuCMXIaXneOpyEx.gif">
+															</span>
+															<span>所对的边长分别为</span>
+															<span style="; ">
+																<img width="42" height="21" src="images/1411114457V2uj4ePn7lcMlmiODV4e.gif">
+															</span>
+															<span style=";">
+																<img width="214" height="41" src="images/1411114457dTNCpoWcoU96LQmo94sB.gif">
+															</span>
+														</div>
+														<span style="; ">
+															<img width="108" height="22" src="images/1411114457nzaQnuH2g02Jo7n2f80a.gif">
+														</span>
+														<span>
+															（</span><span style="; ">&nbsp;&nbsp; </span><span>）
+														</span>
+													</span>
+													<div>
+														<span class="em2" style="float:left;line-height:18px;font-size:14px;padding-right:30px;">
+															A．<img width="17" height="41" src="images/141111445706H69gFhUxOHM4pXUycf.gif">
+														</span>
+														<span class="em2" style="float:left;line-height:18px;font-size:14px;padding-right:30px;">
+															B．<img width="17" height="41" src="images/1411114457GqK5fEl1v8su0PyEX8hM.gif">
+														</span>
+														<span class="em2" style="float:left;line-height:18px;font-size:14px;padding-right:30px;">
+															C．<img width="26" height="41" src="images/1411114457sWaaHZTzlc7fI6VgD2ag.gif">
+														</span>
+														<span class="em2" style="float:left;line-height:18px;font-size:14px;padding-right:30px;">
+															D．<img width="26" height="41" src="images/1411114457Q0znzUmb4k5VZhfElzdc.gif">
+														</span>
+													</div>
+													<table name="optionsTable" cellpadding="0" cellspacing="0" width="100%">
+														<tbody>
+														</tbody>
+													</table>
+												</div>
+												<div class="quesTxt quesTxt2 quesTxtfno" style="display: none;">
+													<ul>
+														<li>
+															<font>章节</font>
+															<div class="fl">
+																<a href="javascript:;">恒等变换综合</a>
+															</div>
+														</li>
+													</ul>
+													<ul>
+														<!--                            <li><font>解题思路</font><div class="editorBox title_css"></div></li>-->
+														<li>
+															<font>试题解析</font>
+															<div class="editorBox title_css">
+																<br>
+																<img width="215" height="41" src="images/1411114457wITSdcr4DPD9KW22tZyJ.gif">
+																<img width="278" height="42" src="images/1411114457G4HvRv4pzcjphI3YNzRu.gif">
+																因为0&lt;B&lt;π，所以
+																<img width="59" height="21" src="images/14111144571p0DMVYzOC8EQYMTwhkH.gif">
+																，
+																<img width="174" height="42" src="images/1411114457Trimgm5crgfybd1wpUfI.gif">，所以
+																<img width="90" height="42" src="images/1411114457jSzjRvB6RByM5BUUggZO.gif">，所以
+																<img width="91" height="42" src="images/14111144577sSW6YIytpgXLJPeb3E0.gif">，
+																<img width="32" height="21" src="images/1411114457mSaQGBW1WaC6n4a94WXf.gif">=
+																<img width="6" height="42" src="images/1411114457Hsvebtsvfboj9TeCbbXa.gif">，因为a&gt;b，所以B为锐角 所以B=
+																<img width="7" height="42" src="images/14111144577PuJCJGOVlxpB4lc7KWd.gif">，选A
+																<br>
+															</div>
+														</li>
+														<li class="noborder title_css">
+															<font>答案</font>
+															<b class="choiceB">A</b>
+														</li>
+													</ul>
+												</div>
+											</div>
+										</div>
+									</li>
+									<li id="1084726" t_id="1" class="ajax_li" exam_need="1,1084726">
+										<div class="quesbox" style="border: 1px solid rgb(255, 255, 255);">
+											<div class="quesopmenu" style="display: none;">
+												<a name = "my_baocuo" href="javascript:;" is_shijuan="1" class="icon3 exam_1084726" id="exam_1084726" exam_id="1084726" rel="nofollow">报错</a>
+												<a class="answer">答案</a>
+												<a class="del">删除</a>
+												<a class="replace">换题</a>
+												<a class="moveup">上移</a>
+												<a class="movedn" style="display: none;">下移</a>
+												<input type="hidden" name="sub_name" value="高中数学">
+												<input type="hidden" name="tixing_name" value="单选题">
+											</div>
+											<div class="quesdiv">
+												<font class="reportError" sub_id="5" exam_id="1084726" style="display: none;">报错</font>
+												<div class="fck007"><span class="quesindex" style="background-color: rgb(255, 255, 255);">
+													<b>3.</b>
+												</span>
+												<span class="tips"></span>
+												<span class="title_css">
+													<span>已知等差数列<span>
+														<img width="31" height="25" src="images/1452570258TEy9B0qTTF53hqvcWJun.gif">
+													</span>
+													的公差为
+													<span>
+														<img width="13" height="17" src="images/1452570258IoJ5fzNgiv7j1yEJgq3Q.gif">
+													</span>，若
+													<span><img width="65" height="25" src="images/1452570258EHTNi7rhKvJ2bi7d8iGU.gif"></span>
+													成等比数列，那么
+													<span><img width="15" height="25" src="images/1452570258bKIKYOLzrsDPdUWqTEKU.gif"></span>
+													等于
+												</span>
+												<span>（<span>&nbsp;&nbsp; </span>）</span>
+												<br>
+											</span>
+											<div>
+												<span class="em2" style="float:left;line-height:18px;font-size:14px;padding-right:30px;">A．2</span>
+												<span class="em2" style="float:left;line-height:18px;font-size:14px;padding-right:30px;">B．1</span>
+												<span class="em2" style="float:left;line-height:18px;font-size:14px;padding-right:30px;">C．-1</span>
+												<span class="em2" style="float:left;line-height:18px;font-size:14px;padding-right:30px;">D．-2</span>
+											</div>
+											<table name="optionsTable" cellpadding="0" cellspacing="0" width="100%">
+												<tbody></tbody>
+											</table>
+										</div>
+										<div class="quesTxt quesTxt2 quesTxtfno" style="display: none;">
+											<ul>
+												<li>
+													<font>章节</font>
+													<div class="fl">
+														<a href="javascript:;">等差数列</a>
+														<a href="javascript:;">等比数列</a>
+													</div>
+												</li>
+											</ul>
+											<ul>
+												<!--                            <li><font>解题思路</font><div class="editorBox title_css"></div></li>-->
+												<li>
+													<font>试题解析</font>
+													<div class="editorBox title_css">根据题意有：
+														<img width="227" height="25" src="images/1452570258BRbGLZaLwxNgvjJwjrhp.gif">，解得：
+														<img width="47" height="23" src="images/1452570258f6sW0Fw92uTeaZJCsF6N.gif">
+														<br> 故答案为：A
+													</div>
+												</li>
+												<li class="noborder title_css">
+													<font>答案</font>
+													<b class="choiceB">A</b>
+												</li>
+											</ul>
+										</div>
+									</div>
+								</div>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!--第一卷-->
+		<div class="paperpart" id="paperpart2">
+			<!-- 第二卷 -->
+			<div id="parthead2" class="parthead" style="border: 1px solid rgb(255, 255, 255); background: rgb(255, 255, 255);">
+				<div class="partmenu" style="display: none;">
+					<a class="amendquestype mbquesBtn5" style="display: none;">修改</a>
+				</div>
+				<div id="partheadbox2" class="partheadbox">
+					<div id="partname2" class="partname">第II卷（非选择题）</div>
+					<div id="partnote2" class="partnote">本试卷第二部分共有3道试题。</div>
+				</div>
+			</div>
+			<div class="partbody" id="part2">
+				<div class="questype" id="questype2_1" t_id="4">
+					<div class="questypehead" id="questypehead2_1">
+						<div class="questypemenu">
+							<a class="amendquestype mbquesBtn4">修改</a>
+							<a class="amendquestype typemovedn" style="display: none;">下移</a>
+							<a class="amendquestype typemoveup" style="display: none;">上移</a>
+						</div>
+						<div class="questypeheadbox" id="questypeheadbox2_1">
+							<table border="0" width="100%" cellpadding="0" cellspacing="0">
+								<tbody>
+									<tr>
+										<td>
+											<div class="questypetitle" style="width: auto;">
+												<span class="questypeindex">
+													<b>二、</b>
+												</span>
+												<span class="questypename" id="questypename2_1" name="4" abc="4">填空题（共3小题）</span>
+											</div>
+										</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+					<div class="questypebody">
+						<ul class="dragsort-ver">
+							<li id="1272685" t_id="4" class="ajax_li" exam_need="4,1272685">
+								<div class="quesbox" style="border: 1px solid rgb(255, 255, 255);">
+									<div class="quesopmenu" style="display: none;">
+										<a name="my_baocuo" href="javascript:;" is_shijuan="1" class="icon3 exam_1272685" id="exam_1272685" exam_id="1272685" sub_id="5" rel="nofollow">报错</a>
+										<a class="answer">答案</a>
+										<a class="del">删除</a>
+										<a class="replace">换题</a>
+										<a class="moveup" style="display: none;">上移</a>
+										<a class="movedn">下移</a>
+										<input type="hidden" name="sub_name" value="高中数学">
+										<input type="hidden" name="tixing_name" value="填空题">
+									</div>
+									<div class="quesdiv">
+										<font class="reportError" sub_id="5" exam_id="1272685" style="display: none;">报错</font>
+										<div class="fck007">
+											<span class="quesindex" style="background-color: rgb(255, 255, 255);">
+												<b>4.</b>
+											</span>
+											<span class="tips"></span>
+											<span class="title_css">
+												<span>设椭圆<span>E</span>的方程为<span>
+												<img width="47" height="47" id="图片 41" src="images/1459139263QVyWyQPKD2Cl9F29r1Y2.gif">
+											</span>
+											<span>=1</span>
+											（<span>a</span>＞<span>b</span>＞<span>0</span>），点
+											<span>O</span>
+											为坐标原点，点
+											<span>A</span>
+											的坐标为（<span>a</span>，<span>0</span>），点
+											<span>B</span>的坐标为（<span>0</span>，<span>b</span>），点
+											<span>M</span>在线段<span>AB</span>上，满足<span>|BM|=2|MA|</span>，直线<span>OM</span>的斜率为<span>
+											<img width="20" height="37" id="图片 42" src="images/1459139263v9idmBRnOWCqM8qheRyt.gif"></span>．则
+											<span>E</span>
+											的离心率<span>e=____________</span>
+										</span>
+										<span>．</span>
+										<br>
+									</span>
+								</div>
+								<div class="quesTxt quesTxt2 quesTxtfno" style="display: none;">
+									<ul>
+										<li>
+											<font>章节</font>
+											<div class="fl">
+												<a href="javascript:;">椭圆</a>
+											</div>
+										</li>
+									</ul>
+									<ul>
+										<!--                            <li><font>解题思路</font><div class="editorBox title_css"></div></li>-->
+										<li>
+											<font>试题解析</font>
+											<div class="editorBox title_css">
+												<br>若|BM|=2|MA|，则
+												<img width="83" height="41" src="images/1459139263gKb1WconteynO0480jDP.gif">
+												<br>设M（x，y）．所以
+												<img width="205" height="88" src="images/1459139263vf5MEVkHEJGHSnqeNxpM.gif">。
+												<br>
+												<img width="176" height="83" src="images/1459139263EoEFLFiQtNHbVf1aRNQG.gif">所以
+												<img width="60" height="45" src="images/1459139263EDF2nUJGxLyUGNGHPWSl.gif"><br>所以
+												<img width="263" height="45" src="images/1459139263Yn5BLlQguuCQv2JhRnxh.gif"><br> 故答案为：
+												<img width="30" height="37" id="图片 44" src="images/1459139263SbqoaVMDTpRRHvnCQryX.gif">
+											</div>
+										</li>
+										<li class="noborder title_css">
+											<font>答案</font>
+											<b class="choiceB">
+												<img width="30" height="37" id="图片 43" src="images/1459139263X1H8vUAAWCZSRziFBrTj.gif"></b>
+											</li>
+										</ul>
+									</div>
+								</div>
+							</div>
+						</li>
+						<li id="1208211" t_id="4" class="ajax_li" exam_need="4,1208211">
+							<div class="quesbox" style="border: 1px solid rgb(255, 255, 255);">
+								<div class="quesopmenu" style="display: none;">
+									<a name="my_baocuo" href="javascript:;" is_shijuan="1" class="icon3 exam_1208211" id="exam_1208211" exam_id="1208211" sub_id="5" rel="nofollow">报错</a>
+									<a class="answer">答案</a>
+									<a class="del">删除</a>
+									<a class="replace">换题</a>
+									<a class="moveup">上移</a>
+									<a class="movedn">下移</a>
+									<input type="hidden" name="sub_name" value="高中数学">
+									<input type="hidden" name="tixing_name" value="填空题">
+								</div>
+								<div class="quesdiv">
+									<div class="fck007">
+										<span class="quesindex" style="background-color: rgb(255, 255, 255);">
+											<b>5.</b>
+										</span>
+										<span class="tips"></span>
+										<span class="title_css"><span>已知点<span>
+											<img width="16" height="17" src="images/1454318100ytoMZLFqBDLhNzMoNTr2.gif">
+										</span>在<span>
+										<img width="43" height="17" src="images/14543181009ZDBww0wiYN0vTsiXkLA.gif">
+									</span>的内部，且有<span>
+									<img width="150" height="25" src="images/1454318100rx37YI4y2XbPVlVHbtu5.gif"></span>，记
+									<span>
+										<img width="144" height="21" src="images/1454318100ArGKNHkqH7krmi2ET6kU.gif"></span>的面积分别为
+										<span><img width="136" height="24" src="images/1454318100BFRkR9v79J3IaSTw2Xy8.gif"></span>．若
+										<span><img width="86" height="21" src="images/1454318100OxNDMsquRseI3OyLavqF.gif"></span>，则
+										<span><img width="142" height="24" src="images/14543181003NeNEEbMjC60FrYZsfQr.gif"><u>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </u></span>；若
+										<span><img width="114" height="21" src="images/1454318100EUdvSRdW3FWshDM0bhQD.gif"></span>，则
+										<span><img width="142" height="24" src="images/14543181003NeNEEbMjC60FrYZsfQr.gif"><u>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </u></span>．</span>
+										<br>
+									</span>
+								</div>
+								<div class="quesTxt quesTxt2 quesTxtfno" style="display: none;">
+									<ul>
+										<li>
+											<font>章节</font>
+											<div class="fl">
+												<a href="javascript:;">平面向量的几何应用</a>
+											</div>
+										</li>
+									</ul>
+									<ul>
+										<!--                            <li><font>解题思路</font><div class="editorBox title_css"></div></li>-->
+										<li>
+											<font>试题解析</font>
+											<div class="editorBox title_css">
+												<br>若
+												<img width="86" height="21" src="images/1454318100h8nCncmt8QZpK8KztHH3.gif">，则
+												<img width="121" height="23" src="images/1454318100Wcg2xAjVWPy8Caasz2tP.gif">,以
+												<img width="52" height="26" src="images/1454318100BZHuxmN5fE6wIHF3YgdE.gif">为邻边作平行四边形OAFB，<br> OF与AB交于D，OF=2OD，<br> 又
+												<img width="87" height="26" src="images/1454318100INJdtY4zZbXBjHSXsjha.gif">所以
+												<img width="12" height="23" src="images/1454318100yxZq2lO5BWahYqe5Q23u.gif">OD=OC，所以
+												<img width="101" height="24" src="images/1454318100g1DbT5UFfBOXYcvG8PJl.gif"><br> 同理：
+												<img width="101" height="24" src="images/14543181009r4Jn3h3CtOCrs7A0cCm.gif">
+												<img width="101" height="24" src="images/1454318100PHq3P3FK2EYG0kTB9Xft.gif"><br> 所以
+												<img width="142" height="24" src="images/1454318100cwMLs6b0EREKE8pa8BoE.gif">1:1:1.<br> 若
+												<img width="114" height="21" src="images/14543181009vcQkKCziPIyJLk0NIvr.gif">，则
+												<img width="145" height="23" src="images/1454318100LbB1fFBmA0JkVgDo45sA.gif">，<br> 作
+												<img width="75" height="26" src="images/1454318100Kj0TUktxQkiD8t52yXEY.gif">
+												<img width="76" height="26" src="images/1454318100cM3RMaLQXwd3FNqqpaA3.gif">以
+												<img width="55" height="26" src="images/1454318100X1bmGkd9KyazzvBwXEOV.gif">为邻边作平行四边形OEMF，OM交AB于D,<br> 则
+												<img width="102" height="23" src="images/1454318100AKIf9aIts2CF7EhSlXR8.gif">，因为
+												<img width="76" height="23" src="images/145431810003sTWXZjCoNmo028Bnji.gif">,所以
+												<img width="84" height="26" src="images/1454318100IOfYkYPSc12VB7aUsFrJ.gif">所以
+												<img width="83" height="26" src="images/1454318100QzKtvDt6eKlI0c4ApGNW.gif"><br> 所以
+												<img width="181" height="41" src="images/1454318100qp3jRjBuCoKui6VjXtn1.gif">所以
+												<img width="104" height="41" src="images/14543181008lcXwmT7hlDIhangfBtS.gif">,<br> 同理：
+												<img width="104" height="41" src="images/1454318100BqwHBgmgq1PYexAjZ77U.gif">,
+												<img width="105" height="41" src="images/1454318100mFequrSIedMR5ZTBXVZX.gif">,<br> 故
+												<img width="142" height="24" src="images/1454318100cwMLs6b0EREKE8pa8BoE.gif">
+												<img width="42" height="17" src="images/1454318100eP4ZA9W7QnH1LQHa2JuN.gif"><br> 故答案为：
+												<img width="35" height="17" src="images/1454318100HLskddjIYDXUu4VjD5dN.gif">；
+												<img width="42" height="17" src="images/1454318100eP4ZA9W7QnH1LQHa2JuN.gif">
+											</div>
+										</li>
+										<li class="noborder title_css">
+											<font>答案</font>
+											<b class="choiceB">
+												<img width="35" height="17" src="images/1454318100BQQh2rayYyQxl7mqGrxx.gif">；
+												<img width="42" height="17" src="images/1454318100untqVHNf3Zpw9CWU1uHr.gif"></b>
+											</li>
+										</ul>
+									</div>
+								</div>
+							</div>
+						</li>
+						<li id="978910" t_id="4" class="ajax_li" exam_need="4,978910"><div class="quesbox" style="border: 1px solid rgb(255, 255, 255);">
+							<div class="quesopmenu" style="display: none;">
+								<a name="my_baocuo" href="javascript:;" is_shijuan="1" class="icon3 exam_978910" id="exam_978910" exam_id="978910" sub_id="5" rel="nofollow">报错</a>
+								<a class="answer">答案</a><a class="del">删除</a><a class="replace">换题</a>
+								<a class="moveup">上移</a><a class="movedn" style="display: none;">下移</a>
+								<input type="hidden" name="sub_name" value="高中数学">
+								<input type="hidden" name="tixing_name" value="填空题">
+							</div>
+							<div class="quesdiv">
+								<div class="fck007">
+									<span class="quesindex" style="background-color: rgb(255, 255, 255);"><b>6.</b></span>
+									<span class="tips"></span>
+									<span class="title_css">
+										<div align="left" style="text-align:left;display:inline;line-height:12.0pt"><span>设</span><span>
+											<img width="16" height="19" src="images/14363370742P9XznJ2LGfvB4UfLxzd.gif"></span><span>是</span><span>
+											<img width="45" height="19" src="images/14363370744J1wec3wzr6h6bbHvHHf.gif"></span><span>的外心，</span><span>
+											<img width="13" height="15" id="图片 78" src="images/1436337074RErBEBPFrZpfRJEeEsAY.gif"></span><span>、</span><span>
+											<img width="13" height="19" id="图片 79" src="images/1436337074stoo6du8EUr2DpGahKSA.gif"></span><span>、</span><span>
+											<img width="12" height="15" id="图片 80" src="images/1436337074o4py7OTQKW4YZPF2PZz9.gif"></span><span>分别为</span><span>
+											<img width="48" height="19" src="images/1436337074f4QDtSU2AVWmxU88mLX0.gif"></span><span>内角</span><span>
+											<img width="16" height="17" id="图片 82" src="images/14363370742l8XEJGSXnNyG9SIbpXi.gif"></span><span>、</span><span>
+											<img width="16" height="17" id="图片 83" src="images/1436337074ctDkDJ2ahYnZA7cXBqVl.gif"></span><span>、</span><span>
+											<img width="16" height="19" id="图片 84" src="images/1436337074XaRnJgmzQl16m4um9yRF.gif"></span><span>的对边，</span></div><span>满足</span><span>
+											<img width="100" height="21" src="images/1436337074v18dKUl1i5BwaqiRPs4h.gif"></span><span>，则</span><span>
+											<img width="57" height="24" src="images/1436337074QoZW9fmExqQL9wHUWT76.gif"></span><span>的取值范围是</span><u><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;</span></u><br></span>
+										</div>
+										<div class="quesTxt quesTxt2 quesTxtfno" style="display: none;">
+										<ul>
+										<li>
+										<font>章节</font>
+										<div class="fl">
+											<a href="javascript:;">数量积的应用</a>
+										</div>
+									</li>
+								</ul>
+								<ul>
+									<!--                            <li><font>解题思路</font><div class="editorBox title_css"></div></li>-->
+									<li>
+										<font>试题解析</font>
+										<div class="editorBox title_css"><br><br> 过O作OS⊥AB，OT⊥AC垂足分别为S，T 则S，T分别是AB，AC的中点，
+											<img width="46" height="20" id="图片 981" src="images/1436337074Dophi9X3zRyad3UVAVmd.gif" alt="菁优网-jyeoo">=
+											<img width="108" height="22" id="图片 982" src="images/1436337074OlcJoEwrS8Ur1YNzUSaA.gif" alt="菁优网-jyeoo">=
+											<img width="102" height="20" id="图片 983" src="images/1436337074hgO5B1PoVd8dtuqaF6Ki.gif" alt="菁优网-jyeoo">=﹣|
+											<img width="18" height="20" id="图片 984" src="images/1436337074z5aIBK6YVNpzu7wMalNe.gif" alt="菁优网-jyeoo">||
+											<img width="18" height="20" id="图片 985" src="images/1436337074yIqVk7EAI2gEHUjUGJFO.gif" alt="菁优网-jyeoo">|+|
+											<img width="18" height="20" id="图片 986" src="images/14363370742Qb6EN68lMZJg1rnY7Jt.gif" alt="菁优网-jyeoo">|•|
+											<img width="18" height="20" id="图片 987" src="images/1436337074vDOuAtko8vgzA0OyPmCx.gif" alt="菁优网-jyeoo">|=﹣c×
+											<img width="10" height="35" id="图片 988" src="images/1436337074UZaP7LR6rcAPIXcYeCUS.gif" alt="菁优网-jyeoo">+b×
+											<img width="10" height="35" id="图片 989" src="images/1436337074qLgQczhwPUKZacxMR8Qh.gif" alt="菁优网-jyeoo">=
+											<img width="55" height="42" id="图片 990" src="images/14363370741KtfXXKNBmYDDesbc0eK.gif" alt="菁优网-jyeoo">=<br>b<sup>2</sup>﹣b，b∈（0，2），∴
+											<img width="18" height="20" id="图片 991" src="images/1436337074wHvKZMtKhQdsmLcp60Ry.gif" alt="菁优网-jyeoo">•
+											<img width="18" height="20" id="图片 992" src="images/1436337074hHKdjIg3XTM3wDKApbDG.gif" alt="菁优网-jyeoo">的取值范围 
+											<img width="78" height="35" id="图片 993" src="images/14363370749fia1t7i4U8Tkl3aS75A.gif" alt="菁优网-jyeoo">，故答案为：
+											<img width="51" height="41" src="images/1436337074dX9X40b0fiXTECL9EUJN.gif"><br>
+										</div>
+									</li>
+									<li class="noborder title_css"><font>答案</font><b class="choiceB">
+										<img width="51" height="41" src="images/1436337074AJXiAVAkdBUsPjUDub85.gif">
+									</b>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</li>
+		</ul>
+	</div>
+</div>
+</div>
+</div>
+<!-- 第二卷 -->
+</div>
+</div>
+</div>
+<div class="clear"></div>
+</div>
+<div class="footBox">
+	<div class="baocunshijuan">
+		保存试卷
+	</div>
+	<style type="text/css">
+	#footerpanel {
+		overflow: hidden;
+		z-index:999;
+		font-size: 12px;
+		text-align: center;
+		position: fixed;
+		right: 0px;
+		bottom: 0;
+		background: url(/images/QQjt.png) center top no-repeat ;
+		width: 120px;
+		_position: absolute;
+		_top: expression(document.documentElement.clientHeight + document.documentElement.scrollTop - this.offsetHeight);
+	}
+
+	#footerpanel h2{
+		font-size: 14px;
+		color: #fff;
+		line-height: 32px;
+		font-family: '微软雅黑';
+		margin-bottom: 15px;
+		text-align: center;
+		height: 32px;
+	}
+	#footerpanel div{margin-bottom: 10px;}
+	#footerpanel div h3{
+		font-size: 14px;
+		color: #333;
+		text-align: center;
+	}
+	#footerpanel div a{
+		display: block;
+		width: 92px;
+		height: 22px;
+		margin: 0 auto;
+	}
+</style>
+</div>
+<script type="text/javascript">  var error_sub_id;
+	var error_exam_id;
+//报错
+$(".reportError").live("click",function(){
+	var _this = $(this);
+	$.ajax({
+		type: "POST",
+		url: groupUrl+"/Public/ajaxCheckUser",
+		data:"",
+		success: function(data){
+			if (data=='1'){
+				error_sub_id = _this.attr("sub_id");
+				error_exam_id = _this.attr("exam_id");
+				$("#tmbh").html(error_exam_id);
+				baocuo();
+			}else{
+popTips1();//显示登录弹窗
+}
+}
+});
+});
+function baocuo(){
+	$('#render-error').skygqbox();
+	$(".wrap_title span").html("试题报错");
+	$(".wrap_title span").css("font-size","14px");
+	$('.w500 .commit-success').css("display","none");
+	$('.w500 form').css("display","block");
+	$('.wrap_out').css("display","block");
+	$('#skygqOverlay').css("display","block");
+}
+$("#confirm-commit").click(function() {
+var intL = $(".w500 input[type=checkbox]:checked").length; //获取除全选复选框外的所有选中项	
+var str1=$('#errorDescription').val().length;	
+var url_str = "http://www.yitiku.cn/shijuan/";
+if (intL != 0&& str1<=500){ 
+	var error_type=$('.w500 input[type=checkbox]:checked').map(function() {
+		return $(this).val();}).get().join(",") ; 
+	var error_info=$('#errorDescription').map(function() {
+		return $(this).val();}).get().join(",") ; 
+	$.post(groupUrl+"/Public/user_send_error",{exam_id:error_exam_id,sub_id:error_sub_id,error_type:error_type,error_info:error_info,url_str:url_str
+		,session_examid:'967285,829047,1084726,1272685,1208211,978910'
+	});
+	$("#errorDescription").val("");
+	$(".checkboxerror").attr("checked",false);
+	$(".mt26").addClass('disnone');
+	$("#longdescription").addClass('disnone');
+	$('.w500 form').css("display","none");
+	$('.w500 .commit-success').css("display","block");
+	/*$("#wrapClose").delay(3000).click();*/
+/*$('.wrap_out').delay(1000).fadeOut(500);
+$('#skygqOverlay').delay(1000).fadeOut(500);*/
+
+setTimeout(function () {
+	$("#wrapClose").click();
+}, 2000);
+}
+else if(intL==0){
+	$(".mt26").removeClass('disnone');
+	$('.w500 form').css("display","block");}
+
+	else if(str1>500){
+		$("#longdescription").removeClass('disnone');
+		$('.w500 form').css("display","block");
+
+	}
+
+});
+
+
+$("input[type=checkbox]").live("click",function(){
+	$(".mt26").addClass('disnone');	
+});
+$("#errorDescription").live("focus",function(){
+	$("#longdescription").addClass('disnone');	
+});
+
+</script>
+<!-- <img src="http://115.159.56.229/index.php" style="display:none;" /> -->
+<script src="js/test_look/jquery.skygqbox.js"></script>
+<script src="js/test_look/tiku_common.js"></script>
+<script type="text/javascript">  var groupUrl = '';
+	var is_private = "";
+	var ceping = "1";
+	$(".onlineceping").live("click",function(){checkLogin(check_role,"start_online_test",$(this),true);return false;});
+</script>
+<!--script src="http://tjs.sjs.sinajs.cn/open/api/js/wb.js" type="text/javascript" charset="utf-8"></script-->
+<!-- Baidu share BEGIN -->
+<script type="text/javascript">
+	window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":["mshare","qzone","tsina","weixin","renren","tqq","tieba","douban","sqq","youdao","qingbiji","fbook","twi","copy"],"bdPic":"","bdStyle":"0","bdSize":"16"},"slide":{"type":"slide","bdImg":"0","bdPos":"left","bdTop":"100"}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+</script>
+<style>
+.mbprintTxt{padding: 0 15px 15px;overflow: auto; height: auto;}
+.mbprintTxt li{margin-bottom: 5px;}
+.mt5{margin-top: 5px;}
+.mbprintTxt .fl{margin-bottom: -10px;}
+.mbprintTxt .fl label font{height: 40px;overflow: hidden;}
+.mbanswerSheetTxt{padding-bottom: 0px;}
+.mbprintTxt li .B4{margin: 0 -30px 0 4px;}
+.mbprintTxt li .A3 input{ margin-left: 51px;}
+.mbprintTxt li .A3{background: url("iamges/a3.png") no-repeat scroll 50px 0 ;}
+.mbprintTxt li .dtkA3{background: url("images/questionBank/a3.png") no-repeat scroll 65px 0 ;margin-left: 27px;}
+.mbprintTxt li .danB4{background:url("iamges/questionBank/b4.png") no-repeat scroll 48px 0;}
+.mbprintTxt li .B4 input{margin-left: 46px;}
+.mbprintTxt li .dtkA4 input{margin-left: 51px;}
+</style><!-- 试卷标题修改 -->
+<div style="display:none;">
+	<div id="mbquesContent1" class="mbPaneltxt">
+		<div class="mbquesTxt">
+			<ul class="mt">
+				<li>
+					<label>主标题：</label>
+					<textarea class="wh2" name="paper_title">高中数学期末考试卷(难度系数：0.70-0.56)-20161112</textarea>
+				</li>
+				<li>
+					<label>副标题：</label>
+					<textarea class="wh2" name="paper_title2">高中数学</textarea>
+				</li>
+				<li><input type="button" value="确 定" class="btn btn2 edit_paper_title"></li>
+			</ul>
+		</div>
+	</div>
+</div>
+<!-- 试卷注意事项 -->
+<div style="display:none;">
+	<div id="mbquesContent2" class="mbPaneltxt">
+		<div class="mbquesTxt">
+			<ul class="mt">
+				<li>
+					<label>注意事项：</label>
+					<textarea class="wh4" name="attention">本试卷共有6道试题</textarea>
+				</li>
+				<li><input type="submit" value="确 定" class="btn btn2 edit_paper_attention"></li>
+			</ul>
+		</div>
+	</div>
+</div>
+<div style="display:none;">
+	<div id="mbquesContent3" class="mbPaneltxt">
+		<div class="mbquesTxt">
+			<ul class="mt">
+				<li>
+					<label>第I卷标题：</label>
+					<textarea class="wh2" name="first_paper_title">第I卷（选择题）</textarea>
+				</li>
+				<li>
+					<label>第I卷注释：</label>
+					<textarea class="wh2" name="first_paper_attention">本试卷第一部分共有3道试题。</textarea>
+				</li>
+				<li><input type="submit" value="确 定" class="btn btn2 edit_first_paper"></li>
+			</ul>
+		</div>
+	</div>
+</div>
+<!-- 题型修改 -->
+<div style="display:none;">
+	<div id="mbquesContent4" class="mbPaneltxt">
+		<div class="mbquesTxt">
+			<ul class="mt">
+				<li>
+					<label>题型名称：</label>
+					<textarea class="wh4" name="t_title"></textarea>
+				</li>
+				<li>
+					<label>小题分值：</label>
+					<input name="fenzhi_xuanze" type="text" class="wh02" style="margin-right:160px;" value=""></li>
+					<li><input type="submit" value="确 定" class="btn btn2 edit_t_title"></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<!--本题分值-->
+	<div style="display:none;">
+		<div id="mbquesContent04" class="mbPaneltxt">
+			<div class="mbquesTxt">
+				<form action="" method="post" name="">
+					<ul class="mt">
+						<li>
+							<label>本题分值：</label>
+							<input type="text" class="wh02" name="per_fenzhi"></li>
+							<input type="text" value="" name="shiti_Id" style="display:none;">
+							<li><input type="button" value="确 定" class="btn btn2 edit_per_fenzhi"></li>
+						</ul>
+					</form>
+				</div>
+			</div>
+		</div>
+		<div style="display:none;">
+			<div id="mbquesContent5" class="mbPaneltxt">
+				<div class="mbquesTxt">
+					<ul class="mt">
+						<li><label>第II卷标题：</label><textarea class="wh2" name="second_paper_title">第II卷（非选择题）</textarea></li>
+						<li><label>第II卷注释：</label><textarea class="wh2" name="second_paper_attention">本试卷第二部分共有3道试题。</textarea></li>
+						<li><input type="submit" value="确 定" class="btn btn2 edit_second_paper"></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<!-- 装订线 -->
+		<div style="display:none;">
+			<div id="mbquesContent6" class="mbPaneltxt">
+				<div class="mbquesTxt">
+					<ul class="mt">
+						<li><label>考生输入栏：</label><textarea class="wh4" name="inputtext">学校:___________班级：___________姓名：___________考号：___________</textarea></li>
+						<li><input type="submit" value="确 定" class="btn btn2 edit_inputtext"></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<!--打印1-->
+		<div style="display:none;">
+			<div id="mbprintContent1" class="mbPaneltxt">
+				<div class="mbquesTxt">
+					<!--<p>您的选择题还少3个，填空题还少4个。</p>-->
+					<form action="" method="post" name="">
+						<ul class="mt">
+							<li><label>主标题：</label><textarea class="wh2">高中数学期末考试卷(难度系数：0.70-0.56)-20161112</textarea></li>
+							<li><label>副标题：</label><textarea class="wh2">高中数学</textarea></li>
+							<li><input id="down_printstep" type="button" value="下一步" class="btn btn2"></li>
+						</ul>
+					</form>
+				</div>
+			</div>
+		</div>
+		<!--打印2-->
+		<div style="display:none;">
+			<div id="mbprintContent2" class="mbPaneltxt">
+				<div class="mbprintTxt">
+					<!--<p>您的选择题还少3个，填空题还少4个。</p>-->
+					<form action="" method="post" name="">
+						<ul class="mt">
+							<li>
+								<label>模板：</label>
+								<label class="A4">
+									<input type="radio" name="print_model">
+									<span>A4纸竖排</span>
+								</label>
+								<label class="A3">
+									<input type="radio" name="print_model">
+									<span>A3纸横排</span>
+								</label>
+							</li>
+							<li>
+								<label>答案：</label>
+								<label>
+									<input type="radio" name="print_answer"><span>试题跟答案解析分离</span>
+								</label>
+								<label style="margin-left:180px;">
+									<input type="radio" name="print_answer">
+									<span>试题后面紧跟答案解析</span>
+								</label>
+							</li>
+							<li> 一共将打印<i>3</i>页。 </li>
+							<li>
+								<input type="submit" value="打印预览" class="btn btn4" style="margin:10px 100px 0px 150px;">
+								<input type="submit" value=" 打  印 " class="btn btn2 mt">
+							</li>
+						</ul>
+					</form>
+				</div>
+			</div>
+		</div>
+		<!--下载1-->
+		<div style="display:none;">
+			<div id="mbdownContent1" class="mbPaneltxt">
+				<div class="mbquesTxt">
+					<!--<p>您的选择题还少3个，填空题还少4个。</p>-->
+					<form action="" method="post" name="">
+						<ul class="mt">
+							<li>
+								<label>主标题：</label>
+								<textarea class="wh2" name="paper_title">高中数学期末考试卷(难度系数：0.70-0.56)-20161112</textarea>
+							</li>
+							<li>
+								<label>副标题：</label>
+								<textarea class="wh2" name="paper_title2">高中数学</textarea>
+							</li>
+							<li><input id="down_nextstep" type="button" value="下一步" class="btn btn2"></li>
+						</ul>
+					</form>
+				</div>
+			</div>
+		</div>
+		<!--下载2-->
+		<div style="display:none;">
+			<div id="mbdownContent2" class="mbPaneltxt" style="height: 590px;overflow:hidden;">
+				<div class="mbprintTxt">
+					<!--<p>您的选择题还少3个，填空题还少4个。</p>-->
+					<form action="" method="post" name="myformd">
+						<ul class="mt5">
+							<li>
+								<div class="title">
+									<span>格式</span>
+								</div>
+								<div class="fl">
+									<label>
+										<input class="wp_hover" type="radio" name="doctype" value="doc" checked="true">
+										<span>word2003</span>
+										<font class="save_title_doc">高中数学期末考试卷<br>(难度系数：0.70-0.56)-20161112_yitiku.doc</font>
+										<div class="wp_value" style="text-align:center;padding-top:5px;color:#f43c5e;font-size:12px;text-indent:94px;">为保证试卷显示正常，建议使用 Microsoft Office Word 打开下载的试卷</div>
+									</label>
+									<label>
+										<input id="wp_hover1" type="radio" name="doctype" value="docx">
+										<span>word2007/2010</span>
+										<font class="save_title_docx">高中数学期末考试卷<br>(难度系数：0.70-0.56)-20161112_yitiku.docx</font>
+										<div class="wp_value1" style="text-align:center;padding-top:5px;color:#f43c5e;font-size:12px;display:none;text-indent:94px;">为保证试卷显示正常，建议使用 Microsoft Office Word 打开下载的试卷
+										</div>
+									</label>
+									<label>
+										<input class="wp_display" type="radio" name="doctype" value="pdf">
+										<span>pdf</span>
+										<font class="save_title_pdf">高中数学期末考试卷<br>(难度系数：0.70-0.56)-20161112_yitiku.pdf</font>
+									</label>
+								</div>
+							</li>
+							<li>
+								<div class="title">
+									<span>模板</span>
+								</div>
+								<label class="A4">
+									<input type="radio" name="model" value="A4">
+									<span>A4纸竖排</span>
+								</label>
+								<label class="A3">
+									<input type="radio" name="model" value="A3">
+									<span>A3纸横排</span>
+								</label>
+								<label class="A4">
+									<input type="radio" name="model" value="B5">
+									<span>B5纸竖排</span>
+								</label>
+								<label class="B4 danB4">
+									<input type="radio" name="model" value="B4" checked="true">
+									<span>B4纸横排</span>
+								</label>
+							</li>
+							<li>
+								<div class="title">
+									<span>答案</span>
+								</div>
+								<label>
+									<input type="radio" name="answer_order" style="margin-left:15px;" value="2">
+									<span>试题跟答案解析分离</span>
+								</label>
+								<label style="margin-left:67px;">
+									<input type="radio" name="answer_order" value="1">
+									<span>试题后面紧跟答案解析</span>
+								</label>
+							</li>
+							<li><input type="button" value=" 下  载 " class="btn btn2 mt load" style="margin-left:240px;margin-top:10px;" id="xiazai"></li>
+							<li style="text-align:center;padding-top:5px;color:#f43c5e;">            小提示：为保证试卷的正常下载，建议使用chrome浏览器、或IE8以上浏览器
+							</li>
+						</ul>
+					</form>
+				</div>
+			</div>
+		</div>
+		<!--提交后-->
+		<div style="display:none;">
+			<div id="mbsaveContent" class="mbPaneltxt">
+				<div class="mbquesTxt">
+					<ul class="mt">
+						<li>
+							<label>主标题：</label>
+							<textarea class="wh2" name="save_title">高中数学期末考试卷(难度系数：0.70-0.56)-20161112</textarea>
+						</li>
+						<li>
+							<label>副标题：</label>
+							<textarea class="wh2" name="save_title1">高中数学</textarea>
+						</li>
+						<li>
+							<input type="button" value="保 存" class="btn btn2 fine_save_paper">
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<!-- 试卷保存成功 -->
+		<div style="display:none;">
+			<div id="saveTipContent" class="mbPaneltxt">
+				<div class="mbPaneltxt" id="tipContent">
+					<div class="successPop">
+						<h4 id="save_til">
+						</h4>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- 删除试题提示窗口 -->
+		<div style="display:none;">
+			<div class="mbPaneltxt" id="deltipContent">
+				<div class="mbdelQues" style="width:300px;">
+					<h4>您确定要删除该试题吗？</h4>
+					<a href="javascript:;" class="btn btn2" style="margin:10px 20px 0px 80px;" id="del_exam_button" name="">确定</a>
+					<a href="javascript:confirmTerm(0);" class="btn btn4 mt">取消</a>
+				</div>
+			</div>
+		</div>
+		<!--答题卡-->
+		<div style="display:none;">
+			<div id="answerSheetContent" class="mbanswerSheetTxt">
+				<div class="mbprintTxt mbanswerSheetTxt">
+					<form action="http://www.yitiku.cn/ExamDiy/down_answer_sheet" method="post" name="">
+						<ul>
+							<li>
+								<div class="title">
+									<span>格式</span>
+								</div>
+								<div class="fl">
+									<label>
+										<input type="radio" name="doc_type" value="doc" checked="true">
+										<span>word2003</span>
+										<font class="datika_doc">高中数学期末考试卷(难度系数：0.70-0.56)-20161112答题卡.doc</font>
+									</label>
+									<label>
+										<input type="radio" name="doc_type" value="docx">
+										<span>word2007/2010</span>
+										<font class="datika_docx">高中数学期末考试卷(难度系数：0.70-0.56)-20161112答题卡.docx</font>
+									</label>
+								</div>
+							</li>
+							<li>
+								<div class="title">
+									<span>模板</span>
+								</div>
+								<label class="A4">
+									<input type="radio" name="doc_model" value="common">
+									<span>普通表格</span>
+								</label>
+								<label class="B4 dtkB4">
+									<input type="radio" name="doc_model" value="standard" checked="true">
+									<span>标准答题卡</span>
+								</label>
+								<label class="A3 dtkA3">
+									<input type="radio" name="doc_model" value="intensive">
+									<span>密集型答题卡</span>
+								</label>
+							</li>
+							<li>
+								<input type="submit" value=" 下  载 " class="btn btn2 mt datika" style="margin-left:240px;">
+							</li>
+							<li style="text-align:center;padding-bottom:20px;padding-top:5px;color:#f43c5e;">            小提示：为保证答题卡的正常下载，建议使用chrome浏览器、或IE8以上浏览器
+							</li>
+						</ul>
+					</form>
+				</div>
+			</div>
+		</div>
+		<!-- 下载等待代码 -->
+		<div class="overlay"></div>
+		<div id="AjaxLoading" class="showbox">
+			<div class="loadingWord">
+				<img src="images/waiting.gif">下载中，请耐心等待...
+			</div>
+		</div>
+		<div style="display:none">
+			<iframe id="iframe1" src=""></iframe>
+		</div>
+		<!-- 下载等待代码5秒后提示 -->
+		<div style="display:none;">
+			<div class="mbPaneltxt" id="downloadTipContent">
+				<div class="mbdelQues" style="width:300px;">
+					<h4>您是否已经找到刚才下载的试卷？</h4>
+					<a href="http://www.yitiku.cn/help/#help12" target="_blank" class="btn btn2" style="margin:10px 20px 0px 38px;" name="">未找到文件</a>
+					<a href="javascript:;" class="btn btn4 mt finded">已找到文件</a>
+				</div>
+			</div>
+		</div>
+		<!-- 判断是否有迅雷插件 -->
+		<div style="display:none;">
+			<div class="mbPaneltxt" id="xunleiTipContent">
+				<div class="mbdelQues">
+					<h4 style="width:255px;margin:20px 50px 10px;">易题库试卷暂不支持迅雷下载，下载试卷前请提前关闭浏览器的迅雷默认下载功能</h4>
+					<a href="http://www.yitiku.cn/help/#help13" target="_blank" class="btn btn2" style="margin:10px 20px 0px 95px;" name="">如何关闭</a>
+					<a href="javascript:;" class="btn btn4 mt closedHas">已关闭</a>
+				</div>
+			</div>
+		</div>
+		<script src="js/test_look/quespop.js"></script>
+		<script src="js/test_look/questionBank.js"></script>
+		<script src="js/test_look/paper.js"></script>
+		<script src="js/test_look/tiku_common.js"></script>
+		<script type="text/javascript">var bound_sub_name = "";
+			var is_private = '';
+			var groupUrl = '';
+			var model_type = "4";
+			var sub_id = 5/*删除、上移、下移时形成新的title*/
+			function new_title(can,sign){
+
+				$.ajax({
+					type: "POST",
+					url: groupUrl+"/ExamDiy/del_per_exam",
+					data: "exam_need2="+can+"&sign="+sign,
+					dataType: "json",
+					success: function(data){
+title_all = data['tixing_name'];//题型名称
+edit_t_title(title_all, data["t_id"], "","true");
+$("span[abc="+data["t_id"]+"]").html(title_all);
+}
+});
+			}
+
+			$(function(){
+//$(".questypebody ul").dragsort({dragEnd: saveOrder});
+
+//exam_need0该全局变量定义在paper.js里
+$(".quesopmenu .moveup").click(function(){
+	exam_need0 = $(this).parent().parent().parent().attr("exam_need");
+});
+
+$(".quesopmenu .movedn").click(function(){
+	exam_need0 = $(this).parent().parent().parent().attr("exam_need");
+});
+
+
+/*整个题型的上移下移--begin*/
+$(".typemoveup").live("click",function(){
+	var onthis=$(this).parent().parent().parent();
+	$(this).parent().hide();
+	$(this).parent().parent().css("border", "1px solid #fff");
+	$(this).parent().parent().css("backgroundColor", "#fff");
+
+var is_type1 = onthis.attr("id");//判断是否是第一卷的题型
+is_type1_substr = is_type1.substr(0,9);
+
+var getUp=onthis.prev();
+//如果是第一卷里的题型进行上移
+if(is_type1_substr == 'questype1'){
+	if (getUp.html()==null)  
+	{  
+//alert("顶级元素不能上移");  
+return;  
+}else{
+//第一卷里题型的上下移
+$(onthis).after(getUp);
+}
+}else{
+//如果是二卷里的题型进行上移操作时
+if (getUp.html()==null) 
+{
+//获得第一卷最后一个题型的ID值,同时修改当前题型的id属性值
+var last_id = $("#part1 div[id^='questype1_']:last").attr("id");
+var last_array = last_id.split("_");
+var last_num = last_array[1];
+var new_num = parseInt(last_num)+parseInt(1);
+var new_id = "questype1_" + new_num;
+onthis.attr("id",new_id);
+//放到卷一里的最后一个
+onthis.clone().insertAfter($("#"+last_id));
+onthis.remove();
+}else{
+//第二卷内部题型的上移
+$(onthis).after(getUp);
+}
+}
+$(".quesbox").hover(function(){
+
+},function(){
+	$(this).children(".quesopmenu").hide();
+	$(this).css("border", "1px solid #fff");
+	$(this).children().children(".quesTxt2").hide();
+	$(this).children().children(".showAnswer").hide();
+});
+
+//修改小题的题号,遍历所有小题,重新排序
+var xiao_num = 1;
+$(".quesindex").each(function(){
+	$(this).html("<b>"+xiao_num+".</b>");
+	xiao_num++;
+});
+
+//修改大的题型的序号
+var dati_array = new Array('一','二','三','四','五','六','七','八','九','十','十一','十二','十三','十四','十五','十六','十七','十八','十九','二十');
+var da_num = 0;
+$(".questypeindex").each(function(){
+	dati_num = dati_array[da_num];
+	$(this).html("<b>"+dati_num+"、</b>");
+	da_num++;
+}); 
+
+onthis.fadeOut(500).fadeIn(500); 
+sort_change();    
+});
+
+//题型下移
+$(".typemovedn").live("click",function(){
+	var onthis=$(this).parent().parent().parent();
+	$(this).parent().hide();
+	$(this).parent().parent().css("border", "1px solid #fff");
+	$(this).parent().parent().css("backgroundColor", "#fff");
+
+var is_type2 = onthis.attr("id");//判断是否是第二卷的题型
+is_type2_substr = is_type2.substr(0,9);
+//如果是第二卷里的题型进行下移
+if(is_type2_substr == 'questype2'){
+	var getdown=onthis.next();
+	if (onthis.next().html()==null)  
+	{  
+//alert("顶级元素不能下移");  
+return;  
+}else{
+//第二卷内部的下移
+$(getdown).after(onthis);
+}
+}else{
+//如果是一卷里的题型进行下移操作时
+var getdown=onthis.next();
+if (onthis.next().html()==null) 
+{ 
+//第一卷最后一个进行下移,放到卷二里的第一个,并将原来的进行删除
+var first_id = $("#part2 div[id^='questype2_']:first").attr("id");
+onthis.clone().insertBefore($("#"+first_id));
+onthis.remove();
+//对ID进行重新排序
+var m=1;
+$("#part2 div[class=questype]").each(function(){
+	$(this).attr("id","questype2_"+m);
+	m++
+})
+}else{
+//第一卷内部的下移
+$(getdown).after(onthis);
+}
+}
+$(".quesbox").hover(function(){
+},function(){
+	$(this).children(".quesopmenu").hide();
+	$(this).css("border", "1px solid #fff");
+	$(this).children().children(".quesTxt2").hide();
+	$(this).children().children(".showAnswer").hide();
+});
+
+//修改小题的题号,遍历所有小题,重新排序
+var xiao_num = 1;
+$(".quesindex").each(function(){
+	$(this).html("<b>"+xiao_num+".</b>");
+	xiao_num++;
+});
+
+//修改大的题型的序号
+var dati_array = new Array('一','二','三','四','五','六','七','八','九','十','十一','十二','十三','十四','十五','十六','十七','十八','十九','二十');
+var da_num = 0;
+$(".questypeindex").each(function(){
+	dati_num = dati_array[da_num];
+	$(this).html("<b>"+dati_num+"、</b>");
+	da_num++;
+}); 
+
+onthis.fadeOut(500).fadeIn(500); 
+sort_change();
+});
+/*整个题型的上移下移--end*/
+
+
+/*题型内容试题的上下移部分----开始*/
+$(".moveup").live("click",function(){
+	var onthis=$(this).parent().parent().parent();
+	var spanNum1 = parseFloat(onthis.find(".quesindex b").html()) + "."
+	var spanNum2 = parseFloat(onthis.prev().find(".quesindex b").html())	+ "."
+	var getUp=onthis.prev();
+	if (onthis.prev().html()==null)
+	{
+//alert("顶级元素不能上移");
+return;
+}
+onthis.prev().find(".quesindex b").html(spanNum1);
+onthis.find(".quesindex b").html(spanNum2);
+$(onthis).after(getUp);
+onthis.fadeOut(500).fadeIn(500);
+sort_change(exam_need0);//点击上移之后，将数组更新成功之后再更新title值
+is_top_down();//题型的第一题不出上移，最后一个不出下移 
+});
+$(".movedn").live("click",function(){
+	var onthis=$(this).parent().parent().parent();
+	var spanNum1 = parseFloat(onthis.find(".quesindex b").html())+ "."
+	var spanNum2 = parseFloat(onthis.next().find(".quesindex b").html()) + "."
+	var getdown=onthis.next();
+	if (onthis.next().html()==null)
+	{
+//alert("最底部元素不能下移");
+return;
+}
+onthis.next().find(".quesindex b").html(spanNum1);
+onthis.find(".quesindex b").html(spanNum2);
+$(this).parent().hide();
+$(this).parent().parent().css("border", "1px solid #fff");
+$(this).parent().parent().find(".quesTxt2").hide();
+$(this).parent().parent().find(".showAnswer").hide();
+$(getdown).after(onthis);
+onthis.fadeOut(500).fadeIn(500);
+sort_change(exam_need0);//点击下移之后，将数组更新成功之后再更新title值
+is_top_down();//题型的第一题不出上移，最后一个不出下移 
+});
+/*题型内容试题的上下移部分----结束*/
+
+
+/*题型内容试题的换题部分----结束*/
+$(".replace").live("click",function()
+{
+	var
+	shiTiDiv = $(this).parents(".ajax_li"),
+	examId = shiTiDiv.attr('id'),
+	shouCangexamId = shiTiDiv.find("#exam_"+examId),
+	class_fck007 = shiTiDiv.find(".fck007"),
+	z_nameDataCon = "";
+
+	$.ajax
+	({
+		type: "POST",
+		data: {"examId": examId},
+		url: "/Tiku/ExamDiy/ajax_changeExam",
+		dataType: "json",
+		success: function (shiTiData)
+		{
+			if(shiTiData.code != 0)
+			{
+				alert("没有可换试题！");
+				return;
+			}
+
+			var shiTiContentData = shiTiData.data;
+
+//试题最外层Dom节点属性值替换
+shiTiDiv.attr('id', shiTiContentData.id);
+shiTiDiv.attr('exam_need', shiTiContentData.t_id+','+shiTiContentData.id);
+
+//求助Dom节点属性值替换
+shiTiDiv.find(".reportError").attr('exam_id', shiTiContentData.id);
+
+//收藏Dom节点属性值替换
+shouCangexamId.attr('exam_id', shiTiContentData.id);
+shouCangexamId.removeClass('exam_'+examId);
+shouCangexamId.addClass('exam_'+shiTiContentData.id);
+shouCangexamId.attr('id','exam_'+shiTiContentData.id);
+
+//替换试题标题、考点、答案等内容
+var z_nameData = shiTiContentData.z_name;
+
+shiTiDiv.find(".fck007 .title_css").html(shiTiContentData.title);          //题干
+
+class_fck007.children(".title_css").nextAll().remove();                    //选项
+class_fck007.children(".title_css").after(shiTiContentData.options);
+
+for(var i=0; i<z_nameData.length; i++)
+{
+	z_nameDataCon += '<a href="javascript:;">'+z_nameData[i]+'</a>';
+}
+shiTiDiv.find(".quesTxt .fl").html(z_nameDataCon);                         //考点
+shiTiDiv.find(".quesTxt .editorBox").html(shiTiContentData.detail);        //解析
+shiTiDiv.find(".quesTxt .choiceB").html(shiTiContentData.ans);             //答案
+}
+});
+});
+/*题型内容试题的换题部分----结束*/
+
+
+//生成试卷相关js
+/*显示4个蓝色*/
+$(".fck007").live("mouseover",function(){
+	var _this = $(this).parent().parent();
+	_this.children(".quesopmenu").show();
+	_this.css("border", "1px solid #1887e3");
+});
+
+$(".quesbox").hover(function(){
+
+},function(){
+	$(this).children(".quesopmenu").hide();
+	$(this).css("border", "1px solid #fff");
+	$(this).children().children(".quesTxt2").hide();
+	$(this).children().children(".showAnswer").hide();
+});
+
+/**
+* 蓝色隐藏/显示
+*/
+
+$(".quesopmenu .answer").live('click', function() {
+
+	var answerTxt = $(this).parent().parent().children().children(".quesTxt2");
+
+answerTxt.slideToggle("slow");//toggleClass("showAnswer") 2015.12.18 zyp
+});
+
+/**
+* 点击删除按钮
+*/
+/*获得要删除的试题的题型ID等信息*/
+$(".quesopmenu .del").click(function(){
+	exam_need0 = $(this).parent().parent().parent().attr("exam_need");
+});
+
+$("#del_exam_button").live('click', function(){
+	var id = $(this).attr('name');
+	var delTxt = $("li#"+id);
+	delTxt.detach();
+	$(".dragsort-ver li").each(function(){
+		var b = $(this).find(".quesindex b");
+		var index = $(".quesindex b").index(b);
+		b.html((index+1)+".");
+	});
+sort_change(exam_need0);//点击删除之后，将数组更新成功之后再更新title值
+is_top_down();//删除时，题型的第一题不出上移，最后一个不出下移
+confirmTerm(0);
+});
+
+$(".parthead").live("mouseover",function(){
+	$(this).children(".partmenu").show();
+	$(this).find(".amendquestype").show();
+	$(this).css({ border: "1px solid #f43c5e", background: "#feeff2" });
+});
+$(".parthead").live("mouseout",function(){
+	$(this).children(".partmenu").hide();
+	$(this).find(".amendquestype").hide();
+	$(this).css({ border: "1px solid #fff", background: "#fff" });
+});
+
+$(".questypehead").live("mouseover",function(){
+	$(this).children(".questypemenu").show();
+	$(this).find(".amendquestype").show();
+	/*判断题型，如果是第一个则不显示上移，最后一个则不显示下移--start*/
+//  var len=$(".questypehead").length;
+//$(".questypehead").each(function(i){
+// var _this = $(this);
+//判断如果是第一个或最后一个则让其隐藏
+// if(i==(len-1)){
+
+//	$(".questypemenu .typemovedn").hide();
+//    _this.children(".questypemenu").find(".typemovedn").hide(); 
+//  }
+//  if(i==0){
+
+//      _this.children(".questypemenu").find(".typemoveup").hide();
+//  }
+// });
+
+$("#paperpart1 .questype:first .questypemenu .typemoveup").hide();
+$("#paperpart1 .questype:last .questypemenu .typemovedn").hide();	
+$("#paperpart2 .questype:first .questypemenu .typemoveup").hide();
+$("#paperpart2 .questype:last .questypemenu .typemovedn").hide();
+
+/*end*/
+$(this).css({ border: "1px solid #f43c5e", background: "#feeff2" });
+
+});
+$(".questypehead").live("mouseout",function(){
+	$(this).children(".questypemenu").hide();
+	$(this).find(".amendquestype").hide();
+	$(this).css({ border: "1px solid #fff", background: "#fff" });
+});
+
+$("#pui_title").live("mouseover",function(){
+	$(this).children(".pui_titlemenu").show();
+	$(this).find(".amendquestype").show();
+	$(this).css({ border: "1px solid #f43c5e", background: "#feeff2" });
+});
+$("#pui_title").live("mouseout",function(){
+	$(this).children(".pui_titlemenu").hide();
+	$(this).find(".amendquestype").hide();
+	$(this).css({ border: "1px solid #fff", background: "#fff" });
+});
+$(".pui_noticeBox").live("mouseover",function(){
+	$(this).children(".pui_noticemenu").show();
+	$(this).find(".amendquestype").show();
+	$(this).css({ border: "1px solid #f43c5e", background: "#feeff2" });
+});
+$(".pui_noticeBox").live("mouseout",function(){
+	$(this).children(".pui_noticemenu").hide();
+	$(this).find(".amendquestype").hide();
+	$(this).css({ border: "1px solid #fff", background: "#fff" });
+});
+
+});
+
+/**
+* 2013.7
+* 拖动回调函数
+*/
+function saveOrder(){
+	sort_change();
+}
+
+/*打印试卷功能*/
+function print_exam(){
+	popTips8();
+}
+$("#down_printstep").live("click",function(){
+	popTips9();
+});
+
+/*下载--判断用户是否修改过标题*/
+function whether_change_title(){
+	$.ajax({
+		type: "POST",
+		url: "/ExamDiy/ajax_change_title",
+		data: "",
+		success: function(msg){
+			if(msg==1){
+				had_thunder();
+
+			}else{
+				popTips17();
+				$("#down_nextstep").live("click",function(){
+					save_title_public();
+					had_thunder();
+// popTips10();
+});
+			}
+		}
+	});
+}
+
+/*保存--判断用户是否修改过标题*/
+function whether_change_title2(){
+	$.ajax({
+		type: "POST",
+		url: "/ExamDiy/ajax_change_title",
+		data: "",
+		success: function(msg){
+			if(msg==1){
+				save_paper();
+			}else{
+				popTips11();
+				$('.fine_save_paper').live("click", function(){
+					save_paper();
+				});
+			}
+		}
+	});
+}
+/*判断是否有迅雷插件*/
+function if_thunder(){
+	if(!+[1,]){
+//alert("这是ie浏览器");
+try {
+	new ActiveXObject("ThunderAgent.Agent");
+	return true;
+}
+catch (ex) {
+	return false;
+}
+} 
+else{
+//alert("这不是ie浏览器");
+for (i=0; i < navigator.plugins.length; i++) {
+	var Cts = navigator.plugins[i].name;
+	if( Cts.indexOf("Thunder")>-1 || Cts.indexOf("XunLei")>-1 )
+	{
+		return true;
+	}
+}
+return false;
+}
+}
+var thunderHas=if_thunder();
+function had_thunder(){
+	if(thunderHas){
+//	迅雷下载弹窗
+//  popTips21();
+//	下载试卷弹窗
+popTips10();
+$('.closedHas').click(function(){
+	popTips10();
+});
+}
+else{
+	popTips10();
+}
+}
+//2015/11/18
+$("#wp_hover1").live('click',function(){
+	$(".wp_value").hide();
+	$(".wp_value1").show();
+})
+$(".wp_hover").live('click',function(){
+	$(".wp_value1").hide();
+	$(".wp_value").show();
+})
+$(".wp_display").live('click',function(){
+	$(".wp_value1").hide();
+	$(".wp_value").hide();
+})
+
+//2015/11/18 end 
+</script>
+<!--下载试卷,包括等待转圈的部分-->
+<script src="js/test_look/jquery.timers.js"></script>
+<script src="js/test_look/down_wait.js"></script>
+<div style="display:none;">
+	<div id="mbstowContent" class="mbPaneltxt">
+		<div class="mbstowTag">
+			<h3>收藏成功</h3>
+			<form action="" name="shoucang" method="post">
+				<ul>
+					<li>
+						<label>打标签：</label>
+						<input type="text" class="wh6" value="" name="tagName">
+						<u>添加多个标签时，请用英文逗号分隔。</u>
+					</li>
+					<li>
+						<label>标签：</label>
+						<div>
+							<a href="javascript:;">易错题</a>
+							<a href="javascript:;">经典题</a>
+							<a href="javascript:;">好题</a>
+						</div>
+					</li>
+					<li>
+						<input type="button" class="btn btn2" value="确定" onclick="confirmTerm(1)">
+					</li>
+				</ul>
+			</form>
+		</div>
+	</div>
+</div>
+<script>//引导
+	$(function(){
+		$(".guideSwitch").append("<a href='javascript:;' class='pl'>新手引导</a>");
+		var tipVisibleE = GetCookie("tipVisibleE");
+/*if(tipVisibleE != "no"){
+showSearchTip();
+setSearchTip();
+$("#guideBox51").show();
+if($.browser.version == '7.0'){
+$(".guideBox").parent().css("zIndex","0");
+$("#guideBox51").parent().css("zIndex","3001");
+}
+}*/
+$(".guideSwitch a").live("click",function(){
+	SetCookie("tStatus",2);
+	$("#searchTipBg").detach();
+	showSearchTip();
+	setSearchTip();
+	$("#guideBox51").show();
+	if($.browser.version == '7.0'){
+		$(".guideBox").parent().css("zIndex","0");
+		$("#guideBox51").parent().css("zIndex","3001");
+	}
+});
+})
+var groupUrl = '';	// 当前组的地址
+var php_exam = "Exam";
+var sub_name;
+var tixing_name;
+var exam_id;
+var is_shijuan;//是否是试卷组成页面
+//点击收藏触发的事件
+$(".icon3").live("click",function(){
+	is_shijuan = $(this).attr('is_shijuan');
+	sub_id = $(this).attr('sub_id');
+	exam_id = $(this).attr('exam_id');
+	sub_name = $(this).parent().find("input[name='sub_name']").val();
+	tixing_name = $(this).parent().find("input[name='tixing_name']").val();
+	$("#mbstowContent").find("input[name=tagName]").attr('value',sub_name+tixing_name);
+	access_ajax_call("collect_exam",'','',sub_id);
+});
+
+//点击取消收藏触发的事件
+$(".overicon3").live("click",function(){
+	is_shijuan = $(this).attr('is_shijuan');
+	exam_id = $(this).attr('exam_id');
+	sub_name = $(this).parent().find("input[name='sub_name']").val();
+	tixing_name = $(this).parent().find("input[name='tixing_name']").val();
+	checkLogin(cancel_collect);
+});
+
+$(function(){
+//生成试卷相关js
+/*显示4个蓝色*/
+$(".fck007").live("mouseover",function(){
+	$(this).children(".quesindex").css("backgroundColor", "#fff");
+});
+$(".quesbox").hover(function(){
+},function(){
+	$(this).children().children().children(".quesindex").css("backgroundColor", "#fff");
+});
+});
+$(document).ready(function(){
+	var sjheight=$('#wo_de_shi_juan').height();
+	var h=$(window).height();
+
+
+	if(sjheight>200)
+		$('.rightNav').css("bottom","80px");
+	else if(sjheight>190&&sjheight<200)
+		$('.rightNav').css("bottom","100px");
+	else if(sjheight>160&&sjheight<190)
+		$('.rightNav').css("bottom","140px");	
+
+});
+
+</script>
+</body>
+</html>
