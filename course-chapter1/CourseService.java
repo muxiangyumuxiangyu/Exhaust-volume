@@ -1,6 +1,7 @@
 package com.service;
 
 
+import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
 
@@ -12,7 +13,6 @@ import org.springframework.transaction.annotation.Transactional;
 import com.dao.CourseDao;
 import com.entity.Chapter;
 import com.entity.Course;
-import com.entity.Teacher;
 
 
 
@@ -42,8 +42,18 @@ public class CourseService {
 	}
 	
 	//É¾³ö¿Î³Ì
-	public void deleteCourse(Integer c_id){
+	public boolean deleteCourse(Integer c_id){
+		Course course=courseDao.getCourse(c_id);
+		Set<Chapter> sets=course.getChapters();
+		Iterator i=sets.iterator();
+		while(i.hasNext()){
+			Chapter chapter=(Chapter)i.next();
+			if(!chapterService.canDeleteChapter(chapter.getId())){
+				return false;
+			}
+		}
 		this.courseDao.deleteCourse(c_id);
+		return true;
 	}
 	
 	@Transactional(readOnly=true)

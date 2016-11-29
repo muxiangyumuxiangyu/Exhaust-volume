@@ -63,7 +63,7 @@ public class ChapterDao {
 		Iterator i=sets.iterator();
 		while(i.hasNext()){
 			Question q=(Question)i.next();
-			questionDao.deleteQuestion(q.getId());
+			q=session.get(Question.class, q.getId());
 		}
 		session.delete(c);
 	}
@@ -73,6 +73,14 @@ public class ChapterDao {
 		Session session = sessionFactory.getCurrentSession();
 		Query query=session.createQuery("from Chapter where name like ?");
 		query.setString(0, "%"+param+"%");
+		query.setMaxResults(5);
+		query.setFirstResult(pageNum*5);
+		return query.list();
+	}
+	
+	public List<Chapter> findChapter(int pageNum) {
+		Session session = sessionFactory.getCurrentSession();
+		Query query=session.createQuery("from Chapter");
 		query.setMaxResults(5);
 		query.setFirstResult(pageNum*5);
 		return query.list();

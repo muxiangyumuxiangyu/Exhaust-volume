@@ -1,19 +1,18 @@
 package com.controller;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.entity.Chapter;
-import com.entity.Course;
-import com.framework.Page;
 import com.service.ChapterService;
-import com.service.CourseService;
 
 @Controller
 @RequestMapping("chapter")
@@ -21,69 +20,117 @@ public class ChapterController {
 	
 	@Resource
 	private ChapterService chapterService;
-	@Resource
-	private CourseService courseService;
 	
 	@RequestMapping("toAdd")
 	public String toAdd(Chapter ch,HttpServletRequest request){
 		request.setAttribute("chapter", ch);
 		request.setAttribute("action", "add");
-		return "chapter/chaform";
+		return "chapter/form";
 	}
 	
 	@RequestMapping(value="add",method=RequestMethod.POST)
 	public String add(Chapter ch,HttpServletRequest request){
-		this.chapterService.addChapter(ch);
-		return "redirect:chlist";
+		Integer c_id=new Integer(request.getParameter("c_id"));
+		this.chapterService.addChapter(ch,c_id);
+		
+		List<Chapter> lists=new ArrayList<Chapter>();
+		request.setAttribute("pageNum", 0);
+		lists=chapterService.listChapter(0);
+		request.setAttribute("searchParam", "");
+		request.setAttribute("action", "select");
+		return "redirect:list";
 	}
 	
 	@RequestMapping(value="edit",method=RequestMethod.GET)
 	public String toEdit(@RequestParam("id") int chapterId,
 			HttpServletRequest request){
 		Chapter ch=this.chapterService.getChapterId(chapterId);
-		System.out.println(ch.getId()+"  "+ch.getName()+"  "+ch.getCourse().getId()+"  "+ch.getChapterOrder());//
 		request.setAttribute("chapter", ch);
 		request.setAttribute("action", "edit");
-		return "chapter/chaform";
+		return "chapter/form";
 	}
 	
+	@RequestMapping(value="toEdit")
+	public String editList(HttpServletRequest request){
+		List<Chapter> lists=new ArrayList<Chapter>();
+		lists=chapterService.listChapter(0);
+		request.setAttribute("chapterlist", lists);
+		request.setAttribute("pageNum", 0);
+		request.setAttribute("action", "edit");
+		return "chapter/list";
+	}
+	
+	@RequestMapping(value="toDelete",method=RequestMethod.GET)
+	public String toDelete(HttpServletRequest request){
+		List<Chapter> lists=new ArrayList<Chapter>();
+		lists=chapterService.listChapter(0);
+		request.setAttribute("chapterlist", lists);
+		request.setAttribute("pageNum", 0);
+		request.setAttribute("action", "delete");
+		return "chapter/list";
+	}
+	
+	
 	@RequestMapping(value="edit",method=RequestMethod.POST)
-	public String edit(Chapter ch,HttpServletRequest request){
-		
-		String Id = request.getParameter("courseId");
-		int courseId=new Integer(Id);
-		System.out.println(courseId);
-		Course cou = courseService.getCourseId(courseId);
-		System.out.println(cou.getName());
-		ch.setCourse(cou);
-		System.out.println(ch.getId()+"  "+ch.getName()+"  "+ch.getCourse().getId()+"  "+ch.getChapterOrder());
+	public String edit(HttpServletRequest request){
+		Integer id=new Integer(request.getParameter("id"));
+		String name=request.getParameter("name");
+		Integer chapterOrder =new Integer(request.getParameter("chapterOrder"));
+		Integer c_id=new Integer(request.getParameter("c_id"));
+		Chapter ch=new Chapter();
+		ch.setId(id);
+		ch.setName(name);
+		ch.setChapterOrder(chapterOrder);
 		this.chapterService.editChapter(ch);
-		return "redirect:chlist";
+		
+		List<Chapter> lists=new ArrayList<Chapter>();
+		request.setAttribute("pageNum", 0);
+		lists=chapterService.listChapter(0);
+		request.setAttribute("searchParam", "");
+		request.setAttribute("action", "select");
+		return "redirect:list";
 	}
 	
 	@RequestMapping(value="delete")
-	public String toDelete(@RequestParam("id") int chapterId,
+	public String delete(@RequestParam("id") int chapterId,
 			HttpServletRequest request){
-		Chapter ch=this.chapterService.getChapterId(chapterId);
-		this.chapterService.deleteChapter(ch);
-		return "redirect:chlist";
+		if(!this.chapterService.deleteChapter(chapterId)){
+			request.setAttribute("prompt", "false");
+		}
+		List<Chapter> lists=new ArrayList<Chapter>();
+		request.setAttribute("pageNum", 0);
+		lists=chapterService.listChapter(0);
+		request.setAttribute("searchParam", "");
+		request.setAttribute("action", "select");
+		return "redirect:list";
 	}
 	
-	@RequestMapping(value="chlist")
-	public String list(@RequestParam(name="pageNum", defaultValue="1") int pageNum,
-			@RequestParam(name="searchParam",defaultValue="") String searchParam,HttpServletRequest request,
-			Model model){
-		Page<Chapter> page;
-		if(searchParam==null || "".equals(searchParam)){
-			page=this.chapterService.listChapter(pageNum, 5, null);	
-		}else{
-			page=this.chapterService.listChapter(pageNum, 5, new Object[]{searchParam});
+	//新增全选山删除2016-11-28 17:00
+		@RequestMapping(value="allDelete")
+		public String allDelete(@RequestParam(name="idlist", defaultValue="") String str,HttpServletRequest request){
+			String[] strs = str.split(",");
+			for(int i=0;i<strs.length;i++){
+				this.chapterService.deleteChapter(new Integer(strs[i]));
+			}
+			return "course/list";
 		}
-		request.setAttribute("chapterPage", page);
+	
+	@RequestMapping(value="list")
+	public String list(@RequestParam(name="pageNum", defaultValue="0") int pageNum,
+			@RequestParam(name="searchParam",defaultValue="") String searchParam,HttpServletRequest request){
+		List<Chapter> lists=new ArrayList<Chapter>();
+		request.setAttribute("pageNum", pageNum);
+		if(searchParam==""){
+			lists=chapterService.listChapter(pageNum);
+		}else{
+			lists=chapterService.listChapter(pageNum, searchParam);
+		}
+		request.setAttribute("chapterlist", lists);
 		request.setAttribute("searchParam", searchParam);
-		return "chapter/chalist";
+		request.setAttribute("action", "select");
+		return "chapter/list";
 		
 	}
 	
-
+	
 }

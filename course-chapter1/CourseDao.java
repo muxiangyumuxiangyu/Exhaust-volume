@@ -25,6 +25,9 @@ public class CourseDao{
 	@Resource
 	private TeacherDao teacherDao;
 	
+	@Resource 
+	private ChapterDao chapterDao;
+	
 	//±£´æ¿Î³Ì
 	public void saveCourse(Course c){
 		Session session=sessionFactory.getCurrentSession();
@@ -59,7 +62,7 @@ public class CourseDao{
 		i=chapters.iterator();
 		while(i.hasNext()){
 			Chapter c=(Chapter)i.next();
-			session.delete(session.get(Chapter.class, c.getId()));
+			chapterDao.deleteChapter(c.getId());
 		}
 		session.delete(course);
 	}
@@ -69,11 +72,7 @@ public class CourseDao{
 		Query query=session.createQuery("from Course");
 		query.setFirstResult(pageNum*5);
 		query.setMaxResults(5);
-		if(query.list().size()!=0){
-			return query.list();
-		}else{
-			return null;
-		}
+		return query.list();
 	}
 	
 	public List<Course> IndistinctFindCourse(int pageNum,String name){
