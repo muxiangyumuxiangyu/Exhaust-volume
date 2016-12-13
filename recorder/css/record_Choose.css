@@ -1,0 +1,45 @@
+#tanchukuang{
+	display:none;
+	position:fixed;
+	top:250px;
+	left:570px;
+	height:auto;
+	background-color:#f0f0ee;
+	width: 300px;
+	z-index:80;
+	border:1px solid #cccccc;
+}
+#tanchukuang .closeButton{
+	float:right;
+	cursor:pointer;
+	width:38px;
+	height:20px;
+	text-align:center;	
+}
+#tanchukuang .closeButton:hover{
+	background-color:#cccccc;
+}
+#tanchukuang #wenbenkuang{
+	margin-left:25px;
+	width:250px;
+	height:100px;
+}
+#tanchukuang #okButton{
+	margin-left:50px;
+	margin-top:9px;
+	margin-bottom:8px;
+	font-size:13px;
+	font-family:'Î¢ÈíÑÅºÚ';
+}
+#tanchukuang #notOkButton{
+	margin-left:108px;
+	margin-top:9px;
+	margin-bottom:8px;
+	font-size:13px;
+	font-family:'Î¢ÈíÑÅºÚ';
+}
+#description_title{
+	display:block;
+	margin-left:85px;
+	margin-top:20px;
+}

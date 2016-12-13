@@ -1,0 +1,24 @@
+.fenye{
+	width:400px;
+	height:30px;
+	margin-left:419px;
+	margin-top:30px;
+}
+.fenye li{
+	display:block;
+	width:40px;
+	height:30px;
+	float:left;
+	text-align:center;
+	line-height:30px;
+	margin-left:5px;
+}
+.fenye li a{
+	display:block;
+	width:40px;
+	height:30px;
+	font-size:10px;
+	font-family:'Î¢ÈíÑÅºÚ';
+	float:left;
+	border:1px solid #ccc;
+}
