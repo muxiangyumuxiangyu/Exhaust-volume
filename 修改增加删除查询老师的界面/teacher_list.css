@@ -1,0 +1,329 @@
+.location{
+	height: 30px;
+    line-height: 30px;
+    color: #666666;
+    border-bottom: 1px solid #CCCCCC;
+    margin-top:25px;
+}
+
+.container {
+    margin: 0px auto;
+    padding: 0px;
+    width: 99%;
+    height: auto;
+}
+
+.blank10 {
+    margin: 0px auto;
+    height: 10px;
+    overflow: hidden;
+}
+
+.search_block {
+    position: relative;
+    width: 99.8%;
+    border: 1px solid #CDCDCD;
+    background-color: #F7F7F7;
+    margin: auto;
+}
+
+.search_block .h {
+    background: url(../images/teacher_block-h.gif) repeat-x;
+    height: 32px;
+    position: absolute;
+    top: -1px;
+    width: 100%;
+}
+
+.icon-magnifier {
+    background-position: -41px -1px;
+}
+
+.icon-sprite {
+    background-image: url(../images/icons_teacher.png);
+    background-repeat: no-repeat;
+    width: 16px;
+    height: 16px;
+    display: inline-block;
+    position: absolute;
+    top: 50%;
+    margin-top: -8px;
+    left: 10px;
+}
+
+.search_block .h h3 {
+    line-height: 32px;
+    text-indent: 35px;
+    font-size: 10pt;
+    color: #666666;
+    font-weight: normal;
+    margin-top:0px;
+}
+
+.search_block .tl {
+    width: 8px;
+    height: 32px;
+    top: -1px;
+    left: -1px;
+    background-position: 0px 0px;
+}
+
+.search_block .tr {
+    width: 8px;
+    height: 32px;
+    top: -1px;
+    right: -1px;
+    _right: -2px;
+    background-position: -8px 0px;
+}
+
+.search_block .bl {
+    width: 8px;
+    height: 12px;
+    bottom: -1px;
+    _bottom: -3px;
+    left: -1px;
+    background-position: 0px -32px;
+}
+
+.search_block .br {
+    width: 8px;
+    height: 12px;
+    bottom: -1px;
+    _bottom: -3px;
+    right: -1px;
+    _right: -2px;
+    background-position: -8px -32px;
+}
+
+.sousuodiv{
+	margin-left: 10px;
+    margin-top: 34px;
+    margin-right:10px;
+    height: 60px;
+    border: 1px solid #DDDDDD;
+    background-color: #FFFFFF;
+    margin-bottom:7px;
+}
+
+.sousuobutton{
+	margin-top:17px;
+	margin-left:15px;
+	font-family:"Î¢ÈíÑÅºÚ";
+}
+.yonghuming{
+	display:block;
+	float:left;
+	width:189px;
+	height:30px;
+	padding-top:3px;	
+}
+.yonghuming input{
+	
+}
+
+#sousuosubmit{
+    background-color: #628264;
+    color: #ffffff;
+    font-family: 'Î¢ÈíÑÅºÚ';
+    width: 47px;
+    height: 28px;
+    border-radius:6px;
+    display:block;
+    float:left;
+   	text-align:center;
+   	line-height:28px;
+   	cursor:pointer;
+}
+
+.icon-list {
+    background-position: -21px -1px;
+}
+
+.search_block .h .addAndDelete {
+    position: absolute;
+    top: 0px;
+    right: 10px;
+    text-align: center;
+    padding-top: 10px;
+    width:180px;
+    height:25px;
+    margin-left:5px;
+}
+
+.search_block .h .addAndDelete a{
+	display:block;
+	font-size:12px;
+	float:left;
+	color:white;
+	width:60px;
+	text-align:center;
+	line-height:22px;
+	height:25px;
+	background-color:#628264;
+	margin-left:3px;
+	border-radius:4px;
+}
+
+
+.search_block .cnt-wp {
+    padding: 35px 10px 10px;
+    display: block;
+}
+
+.search_block .cnt-wp .cnt {
+    border: 1px solid #DDDDDD;
+    background-color: #FFFFFF;
+}
+
+.data-table {
+    width: 100%;
+    border: 0px;
+}
+
+tbody {
+    display: table-row-group;
+    vertical-align: middle;
+    border-color: inherit;
+}
+
+.data-table .even {
+    background-color: #F2F2F2;
+}
+
+tr {
+    display: table-row;
+    vertical-align: inherit;
+    border-color: inherit;
+}
+
+.data-table th {
+    background: url(../images/teacher_data-table-th.gif) repeat-x;
+    height: 31px;
+    line-height: 31px;
+    color: #456b0a;
+    font-weight: bold;
+    font-size: 12px;
+}
+.data-table td.txt {
+    text-indent: 5px;
+}
+.data-table td.c {
+    text-align: center;
+}
+
+.data-table td {
+   border: 1px solid #DDDDDD;
+   line-height: 30px;
+   text-align: center;
+}
+
+.data-table .biaoti{
+	background: url(../images/teacher_data-table-th.gif) repeat-x;
+	color: #456961;
+    font-weight: bold;
+    font-size: 12px;
+}
+
+.data-table .chengyuan{
+	font-family:'Î¢ÈíÑÅºÚ';
+	font-size:12px;
+}
+
+.data-table .opt {
+    position: relative;
+    width: 35px;
+    display: block;
+    height: 25px;
+    text-align: center;
+    cursor: pointer;
+}
+
+.icon-edit {
+    background-position: -63px -1px;
+}
+
+.icon-delete {
+    background-position: -83px -2px;
+}
+.icon-sprite {
+    background-image: url(../images/icons_teacher.png);
+    background-repeat: no-repeat;
+    width: 19px;
+    height: 16px;
+    display: inline-block;
+    position: absolute;
+    top: 50%;
+    margin-top: -8px;
+    left: 10px;
+}
+
+.dibu{
+	height: 41px;
+    line-height: 25px;
+    color: #5b5959;
+    text-align: right;
+    padding-top: 15px;
+}
+.sumpage{
+	float:left;
+	height:29px;
+	text-align:center;
+	line-height:29px;
+}
+
+.fenye{
+	float:left;
+	margin-left:400px;
+}
+.fenye a{
+	display: inline-block;
+    height: 26px;
+    line-height: 26px;
+    text-align: center;
+    border: none;
+    background-image: url(../images/teacher_button-white.gif);
+    background-repeat: no-repeat;
+    background-position: 0px 0px;
+    padding: 0px 0px 0px 12px;
+    text-decoration: none;
+    font-weight: normal;
+    color: #5b5959;
+}
+
+.fenye a span{
+	display: block;
+    padding: 0px 12px 0px 0px;
+    background-image: url(../images/teacher_button-white.gif);
+    background-repeat: no-repeat;
+    background-position: right 0px;
+    font-size: 12px;
+    font-family: "Î¢ÈíÑÅºÚ","ËÎÌå";
+    cursor: pointer;
+}
+
+#input_small{
+	width: 30px;
+    border: 1px solid #D3E5B6;
+    margin: 0px 4px;	
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

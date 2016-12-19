@@ -1,0 +1,33 @@
+.pd-20{
+	margin-left:150px;
+	margin-top:40px;
+}
+
+.everyone{
+	height:30px;
+	font-family:'Î¢ÈíÑÅºÚ';
+	font-size:14px;
+	margin-left:20px;
+	margin-top:10px;
+}
+
+.everyone input{
+	width:355px;
+	height:30px;
+	border:1px solid #dddddd;
+	border-radius: 6px;
+	font-size:14px;
+	font-family:'Î¢ÈíÑÅºÚ';
+}
+
+.everyone .red{
+	color:#b63950;
+}
+
+.red1{
+	margin-left:22px;
+	color:#ae4b5d;
+	display:none;
+	font-size:14px;
+	font-family:'Î¢ÈíÑÅºÚ';
+}
