@@ -1,0 +1,263 @@
+.location{
+	height: 30px;
+    line-height: 30px;
+    color: #666666;
+    border-bottom: 1px solid #CCCCCC;
+    margin-top:25px;
+}
+.pd-20{
+	margin-left:150px;
+	margin-top:40px;
+}
+
+.everyone{
+	height:30px;
+	font-family:'微软雅黑';
+	font-size:14px;
+	margin-left:20px;
+	margin-top:10px;
+}
+
+.everyone input{
+	width:355px;
+	height:30px;
+	border:1px solid #dddddd;
+	border-radius: 6px;
+	font-size:14px;
+	font-family:'微软雅黑';
+}
+
+.everyone .red{
+	color:#b63950;
+}
+.shangbu{
+	height:132px;
+}
+
+.teshu{
+	clear:both;
+	heigth:auto;
+}
+.teshu span{
+	display:block;
+	float:left;
+	font-family:'微软雅黑';
+	font-size:14px;
+}
+
+.time{
+	height:30px;
+	margin-top:30px;
+	margin-left:79px;
+}
+.time #xueshi{
+	font-family:'微软雅黑';
+	font-size:14px;
+	margin-left:-7px;
+}
+.time input{
+	width: 355px;
+    height: 30px;
+    border: 1px solid #dddddd;
+    border-radius: 6px;
+    font-size: 14px;
+    font-family: '微软雅黑';
+}
+.chooseTeacher #teacher{
+	margin-left:11px;
+}
+
+.chooseTeacher{
+	font-family:'微软雅黑';
+	font-size:14px;
+	margin-top:20px;
+	clear:both;
+}
+.chooseTeacher #check{
+	margin-left:6px;
+	margin-top:5px;
+}
+
+.everyline{
+	float:left;
+	width:100px;
+	height:auto;
+	margin-left:10px;
+}
+.jiaoshilist{
+	width:407px;
+	height:auto;
+	margin-left:115px;
+}
+
+.tijiao{
+	width:300px;
+	height:50px;
+	clear:both;
+	margin-left:339px;
+	margin-top:30px;
+}
+
+#pic{
+	margin-top:-4px;
+}
+
+.courseShow{
+	clear:both;
+	float:left;
+	margin-top:25px;
+	margin-left:18px;
+}
+.courseShow textarea{
+	width:355px;
+	border:1px solid #dddddd;
+	border-radius: 6px;
+	color:#cccccc;
+	font-family:'微软雅黑';
+	font-size:14px;
+}
+
+.tijiao a{
+	display:block;
+	width:63px;
+	height:25px;
+	background-color:#628264;
+	border-radius: 3px;
+	margin-left:350px;
+	margin-top:32px;
+	line-height:25px;
+	text-align:center;
+}
+
+.pickuang{
+	float:left;
+	display:block;	
+}
+.pickuang #upimg{
+	width:auto;
+	height:auto;
+}
+
+#uptishi{
+	font-size:10px;
+	font-family:'微软雅黑';
+	display:block;
+	float:left;
+	margin-left:13px;
+}
+
+#shangchuan{
+	float:left;
+}
+
+
+.uploader{
+position:relative;
+display:inline-block;
+overflow:hidden;
+cursor:default;
+padding:0;
+margin-left:9px;
+margin-top:-9px;
+-moz-box-shadow:0px 0px 5px #ddd;
+-webkit-box-shadow:0px 0px 5px #ddd;
+box-shadow:0px 0px 5px #ddd;
+
+-moz-border-radius:5px;
+-webkit-border-radius:5px;
+border-radius:5px;
+}
+
+.filename{
+float:left;
+display:inline-block;
+outline:0 none;
+height:32px;
+width:180px;
+margin:0;
+padding:8px 10px;
+overflow:hidden;
+cursor:default;
+border:1px solid;
+border-right:0;
+font:9pt/100% Arial, Helvetica, sans-serif; color:#777;
+text-shadow:1px 1px 0px #fff;
+text-overflow:ellipsis;
+white-space:nowrap;
+
+-moz-border-radius:5px 0px 0px 5px;
+-webkit-border-radius:5px 0px 0px 5px;
+border-radius:5px 0px 0px 5px;
+
+background:#f5f5f5;
+background:-moz-linear-gradient(top, #fafafa 0%, #eee 100%);
+background:-webkit-gradient(linear, left top, left bottom, color-stop(0%,#fafafa), color-stop(100%,#f5f5f5));
+filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#fafafa', endColorstr='#f5f5f5',GradientType=0);
+border-color:#ccc;
+
+-moz-box-shadow:0px 0px 1px #fff inset;
+-webkit-box-shadow:0px 0px 1px #fff inset;
+box-shadow:0px 0px 1px #fff inset;
+
+-moz-box-sizing:border-box;
+-webkit-box-sizing:border-box;
+box-sizing:border-box;
+}
+
+.button{
+float:left;
+height:32px;
+display:inline-block;
+outline:0 none;
+padding:8px 12px;
+margin:0;
+cursor:pointer;
+border:1px solid;
+font:bold 9pt/100% Arial, Helvetica, sans-serif;
+
+-moz-border-radius:0px 5px 5px 0px;
+-webkit-border-radius:0px 5px 5px 0px;
+border-radius:0px 5px 5px 0px;
+
+-moz-box-shadow:0px 0px 1px #fff inset;
+-webkit-box-shadow:0px 0px 1px #fff inset;
+box-shadow:0px 0px 1px #fff inset;
+}
+
+
+.uploader input[type=file]{
+position:absolute;
+top:0; right:0; bottom:0;
+border:0;
+padding:0; margin:0;
+height:30px;
+cursor:pointer;
+filter:alpha(opacity=0);
+-moz-opacity:0;
+-khtml-opacity: 0;
+opacity:0;
+}
+
+input[type=button]::-moz-focus-inner{padding:0; border:0 none; -moz-box-sizing:content-box;}
+input[type=button]::-webkit-focus-inner{padding:0; border:0 none; -webkit-box-sizing:content-box;}
+input[type=text]::-moz-focus-inner{padding:0; border:0 none; -moz-box-sizing:content-box;}
+input[type=text]::-webkit-focus-inner{padding:0; border:0 none; -webkit-box-sizing:content-box;}
+
+/* White Color Scheme ------------------------ */
+
+.white .button{
+color:#555;
+text-shadow:1px 1px 0px #fff;
+background:#ddd;
+background:-moz-linear-gradient(top, #eeeeee 0%, #dddddd 100%);
+background:-webkit-gradient(linear, left top, left bottom, color-stop(0%,#eeeeee), color-stop(100%,#dddddd));
+filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#eeeeee', endColorstr='#dddddd',GradientType=0);
+border-color:#ccc;
+}
+
+.white:hover .button{
+background:#eee;
+background:-moz-linear-gradient(top, #dddddd 0%, #eeeeee 100%);
+background:-webkit-gradient(linear, left top, left bottom, color-stop(0%,#dddddd), color-stop(100%,#eeeeee));
+filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#dddddd', endColorstr='#eeeeee',GradientType=0);
+}
