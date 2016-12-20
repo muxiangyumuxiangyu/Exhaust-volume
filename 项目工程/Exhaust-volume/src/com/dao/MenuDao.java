@@ -9,8 +9,8 @@ import javax.annotation.Resource;
 import org.hibernate.SessionFactory;
 import org.springframework.stereotype.Repository;
 
-import com.entity.Menu;
-import com.entity.Power;
+import com.entity1.Menu;
+import com.entity1.Power;
 
 @Repository
 public class MenuDao {

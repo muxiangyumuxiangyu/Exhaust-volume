@@ -2,7 +2,9 @@ package com.controller;
 
 import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
@@ -14,6 +16,8 @@ import javax.servlet.http.HttpSession;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.entity.Chapter;
+import com.entity.Course;
 import com.entity.Menu;
 import com.entity.Role;
 import com.entity.Teacher;
@@ -32,7 +36,7 @@ public class TeacherController {
 	
 	@RequestMapping("login")
 	public String login(HttpServletRequest request,HttpSession session){
-		Integer id=new Integer(request.getParameter("username"));
+		String sid=request.getParameter("username");
 		String password=request.getParameter("password");
 		String choice=request.getParameter("choice");
 		try {
@@ -40,9 +44,23 @@ public class TeacherController {
 		} catch (UnsupportedEncodingException e) {
 			e.printStackTrace();
 		}
+		if(sid.equals("")){
+			System.out .println(1);
+			return "redirect:/login_xiugai.jsp";
+			
+		}
+		if(password.equals("")){
+			System.out .println(2);
+		return "redirect:/login_xiugai.jsp";
+			
+		}
+		Integer id=new Integer(sid);
 		Teacher t=teacherService.login(id, password);
-		if(t==null)
-			return "login";
+		
+		if(t==null){
+			System.out .println(3);
+			return "redirect:/login_xiugai.jsp";}
+		
 		Set<Role> roles=t.getRoles();
 		Iterator iterator=roles.iterator();
 		Role r=null;
@@ -54,7 +72,8 @@ public class TeacherController {
 			}
 		}
 		if(r==null)
-			return "login";
+		{	System.out .println(4);
+			return "redirect:/login_xiugai.jsp";}
 		List<Menu> allMenu=menuService.selectAllMenuByRole(r);
 		List<Menu> parentMenu=menuService.selectParentMenuByRole(r);
 		HashMap<Menu,ArrayList<Menu>> map=new HashMap<>();
@@ -70,13 +89,30 @@ public class TeacherController {
 			map.put(parentMenu.get(i),k);
 		}
 		/**
-		 * 如果是教师，需要增加课程的菜单
+		 *教师登录
 		 */
+		HashMap map2=new HashMap();	
 		if(r.getName().equals("教师")){
-			
+			Set<Course> set=t.getCourses();
+				
+			Iterator it=set.iterator();
+			while(it.hasNext()){
+				Course course=(Course)it.next();
+				Iterator it2=course.getChapters().iterator();
+				
+				List<Chapter> chapter=new ArrayList<Chapter>();
+				while(it2.hasNext()){
+					Chapter c=(Chapter)it2.next();
+					chapter.add(c);	
+				}
+				map2.put(course,chapter);
+			}
 		}
+		session.setAttribute("coursemap",map2);
 		session.setAttribute("menumap",map);
 		session.setAttribute("teacher",t);
-		return "index";
+		session.setAttribute("choice",choice);
+		
+		return "redirect:/index.jsp";
 	}
 }

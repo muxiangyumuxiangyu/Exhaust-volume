@@ -29,11 +29,20 @@
               <nav class="nav-primary hidden-xs">
                 <ul class="nav">
                   <li class="active"> <a href="index.html" class="active"> <i class="fa fa-dashboard icon"> <b class="bg-danger"></b> </i> <span>工作台</span> </a> </li>
+                 <c:forEach items="${coursemap }" var="map2">
+                  <li><a href="#layout"><i class="fa fa-columns icon"><b class="bg-warning"></b></i><span class="pull-right"><i class="fa fa-angle-down text"></i><i class="fa fa-angle-up text-active"></i></span> <span>${map2.key.name }</span> </a>
+                    <ul class="nav lt">
+                    <c:forEach items="${map2.value }" var="a2">
+                      <li > <a href="layout-c.html" > <i class="fa fa-angle-right"></i> <span>${a2.name }</span> </a> </li>
+                    </c:forEach>
+                    </ul>
+                  </li>
+                </c:forEach>
                 <c:forEach items="${menumap }" var="map">
                   <li><a href="#layout"><i class="fa fa-columns icon"><b class="bg-warning"></b></i><span class="pull-right"><i class="fa fa-angle-down text"></i><i class="fa fa-angle-up text-active"></i></span> <span>${map.key.name }</span> </a>
                     <ul class="nav lt">
                     <c:forEach items="${map.value }" var="a">
-                      <li > <a href="layout-c.html" > <i class="fa fa-angle-right"></i> <span>${a.name }</span> </a> </li>
+                      <li > <a href="${ctx}/${a.url}" > <i class="fa fa-angle-right"></i> <span>${a.name }</span> </a> </li>
                     </c:forEach>
                     </ul>
                   </li>

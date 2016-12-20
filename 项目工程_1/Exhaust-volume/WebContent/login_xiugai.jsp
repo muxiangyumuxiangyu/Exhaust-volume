@@ -18,28 +18,28 @@
 </head>
 
 <body>
-
+<form action="${ctx }/teacher/login" mathod="post">
 <div id="window" style="display:none;">
 
 	<div class="page page-front">
 		<div class="page-content">
 			<div class="input-row">
 				<label class="label">用户名</label>
-				<input id="username" type="text" class="input"/>
+				<input name="username" id="username" type="text" class="input"/>
 			</div>
 			<div class="input-row">
 				<label class="label">密码</label>
-				<input id="password" type="password" class="input"/>
+				<input name="password" id="password" type="password" class="input"/>
 			</div>
-			<div class="input-row">
+			<!-- 验证码功能暂时不实现 <div class="input-row">
 				<label class="label">验证码</label>
 				<input id="checkcode" type="text" class="input"/>
 				<img id="codepic" src="images/captcha.jpg" title="点击更换" alt="验证码占位图"/>
-			</div>
+			</div>-->
 
          	<div class="jiaowu">
-				&nbsp;&nbsp;<input type="radio" name="choice"/><label>教务</label>
-				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" name="choice"/><label>教师</label>
+				&nbsp;&nbsp;<input type="radio" name="choice"checked="checked" value="教务"/><label>教务</label>
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" name="choice" value="教师"/><label>教师</label>
 			</div>
 			<div class="input-row perspective">
 				<button id="submit" class="button">
@@ -53,7 +53,7 @@
 			</div>
 		</div>
 	</div>
-	<div class="page page-back">
+	<!-- <div class="page page-back">
 		<div class="page-content">
 			<img src="avatar.jpg" class="avatar"/>
 			<p class="welcome">欢迎回来</p>
@@ -61,7 +61,7 @@
 				<button class="button" id="jinru"><i class="ion-refresh"></i>进入</button>
 			</div>
 		</div>
-	</div>
+	</div>-->
 	
 </div>
 <script type="text/javascript" src='js/jquery.js'></script>
@@ -69,6 +69,6 @@
 <script type="text/javascript" src="js/haha.js"></script>
 <div style="text-align:center;">
 </div>
-
+</form>
 </body>
 </html>

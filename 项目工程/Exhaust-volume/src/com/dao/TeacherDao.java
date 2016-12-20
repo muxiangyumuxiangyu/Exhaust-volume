@@ -6,7 +6,7 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.stereotype.Repository;
 
-import com.entity.Teacher;
+import com.entity1.Teacher;
 
 @Repository
 public class TeacherDao {

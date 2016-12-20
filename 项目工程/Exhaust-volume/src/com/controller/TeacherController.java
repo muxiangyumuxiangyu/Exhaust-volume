@@ -14,9 +14,9 @@ import javax.servlet.http.HttpSession;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.entity.Menu;
-import com.entity.Role;
-import com.entity.Teacher;
+import com.entity1.Menu;
+import com.entity1.Role;
+import com.entity1.Teacher;
 import com.service.MenuService;
 import com.service.TeacherService;
 

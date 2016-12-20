@@ -2010,8 +2010,8 @@ DESTINATION 0 新宋体,8,N</a:FontList>
 </c:Object>
 </o:ReferenceSymbol>
 <o:ReferenceSymbol Id="o39">
-<a:Rect>((3337,-10950), (7837,-1050))</a:Rect>
-<a:ListOfPoints>((5625,-1050),(5625,-4351),(5550,-4351),(5550,-10950),(5850,-10950))</a:ListOfPoints>
+<a:Rect>((3487,-10950), (7987,-1050))</a:Rect>
+<a:ListOfPoints>((5625,-1050),(5625,-4351),(5850,-4351),(5850,-10950))</a:ListOfPoints>
 <a:CornerStyle>2</a:CornerStyle>
 <a:ArrowStyle>1</a:ArrowStyle>
 <a:LineColor>4194432</a:LineColor>
@@ -2030,8 +2030,8 @@ DESTINATION 0 新宋体,8,N</a:FontList>
 </c:Object>
 </o:ReferenceSymbol>
 <o:ReferenceSymbol Id="o42">
-<a:Rect>((3225,-10800), (8099,-900))</a:Rect>
-<a:ListOfPoints>((6000,-10800),(5550,-10800),(5550,-4351),(5775,-4351),(5775,-900))</a:ListOfPoints>
+<a:Rect>((3450,-10800), (8324,-900))</a:Rect>
+<a:ListOfPoints>((6000,-10800),(6000,-4351),(5775,-4351),(5775,-900))</a:ListOfPoints>
 <a:CornerStyle>2</a:CornerStyle>
 <a:ArrowStyle>1</a:ArrowStyle>
 <a:LineColor>4194432</a:LineColor>
@@ -4369,7 +4369,7 @@ DAT 1478616844</a:History>
 <a:Creator>PC</a:Creator>
 <a:ModificationDate>1478616845</a:ModificationDate>
 <a:Modifier>PC</a:Modifier>
-<a:TargetModelURL>file:///C|/Users/PC/Desktop/SIM.cdm</a:TargetModelURL>
+<a:TargetModelURL>file:///E|/Exhaust-volume/powerdesigner/SIM.cdm</a:TargetModelURL>
 <a:TargetModelID>21F4E6FE-AEF9-49EE-9E34-B20152FB11EA</a:TargetModelID>
 <a:TargetModelClassID>1E597170-9350-11D1-AB3C-0020AF71E433</a:TargetModelClassID>
 <c:SessionShortcuts>

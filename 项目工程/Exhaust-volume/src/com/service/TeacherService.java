@@ -6,7 +6,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.dao.TeacherDao;
-import com.entity.Teacher;
+import com.entity1.Teacher;
 
 @Service
 @Transactional(readOnly=true)

@@ -51,7 +51,7 @@
                   				<td>添加</td>
                   				<td>2016 11 3</td>
                 			</tr>-->
-                			<form action="${ctx}/question/findbyid" }>
+                			<form action="${ctx}/question/findByContent" }>
                 			<table>
                 			<tr>
                 			<td>查询</td>
@@ -64,23 +64,36 @@
                 			<table>
 				<tr height="80">
 					<td width="100">章节：</td>
-					<select name=chapter>
+					<td><select name=chapter  width="100">
 					<option value="1">第一章</option>
                     <option value="2">第二章</option>			
-					</select>
+					</select></td>
 
 
 					
 				</tr>
 				<tr height="80">
 					<td>题型：</td>
-					<td><input type="text" name="QuestionType" size="40" id="QuestionType" /></td>
+					<td><select name=QuestionType>
+					<option value="1">单选题</option>
+					<option value="2">双选题</option>
+					<option value="3">填空题</option>
+					<option value="4">判断题</option>
+					<option value="5">解释概念</option>
+					<option value="6">简答题</option>
+					<option value="7">计算题</option>
+					<option value="8">证明题</option>
+					</select></td>
 					
 				</tr>
 				<tr height="80">
 					<td>难易程度：</td>
-					<td><input type="text" name="QuestionLevel" size="40" id="QuestionLevel" /></td>
-					
+					<td><select name=QuestionLevel>
+					<option value="1">记忆</option>
+					<option value="2">理解</option>
+					<option value="3">简单应用</option>
+					<option value="4">综合应用</option>
+					</select></td>
 				</tr>
 				<tr height="80">
 				<td>题干：</td>

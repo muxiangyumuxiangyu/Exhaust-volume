@@ -41,10 +41,12 @@
                   				<td>创建时间</td>
                   				<td>标题</td>
                 			</tr>
+                			<c:forEach items="${exams }" var="exam">
                 			<tr>
                   				<td>${exam.e_time }</td>
                   				<td><a href="${ctx}/question/previewExam?e_id=${exam.id}">${exam.title }</a></td>
                 			</tr>
+                			</c:forEach>
               			</table>
             		</section>
         		</section>

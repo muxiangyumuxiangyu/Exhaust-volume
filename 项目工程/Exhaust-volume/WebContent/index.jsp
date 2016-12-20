@@ -47,7 +47,7 @@
                 			<tr>
                   				<td><a href="${ctx}/question/list.jsp">张三</a></td>
                   				<td><a href="${ctx }/question/test">WEB</a></td>
-                 				<td>第三章</td>
+                 				<td><a href="${ctx }/question/toTest">第三章</a></td>
                   				<td>添加</td>
                   				<td>2016 11 3</td>
                 			</tr>

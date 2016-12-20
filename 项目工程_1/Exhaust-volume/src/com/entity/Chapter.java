@@ -19,6 +19,9 @@ import javax.persistence.Table;
 public class Chapter {
 	private int id;
 	private String name;
+	private int chapterOrder;
+	private String courseName;
+	
 	private Course course;
 	private Set<Question> questions=new HashSet<Question>();
 	
@@ -35,6 +38,19 @@ public class Chapter {
 	}
 	public void setName(String name) {
 		this.name = name;
+	}
+	
+	public int getChapterOrder() {
+		return chapterOrder;
+	}
+	public void setChapterOrder(int chapterOrder) {
+		this.chapterOrder = chapterOrder;
+	}
+	public String getCourseName() {
+		return courseName;
+	}
+	public void setCourseName(String courseName) {
+		this.courseName = courseName;
 	}
 	
 	@ManyToOne( cascade = {CascadeType.PERSIST, CascadeType.MERGE}, targetEntity=Course.class,

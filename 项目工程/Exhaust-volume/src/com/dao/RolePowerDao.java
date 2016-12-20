@@ -9,8 +9,8 @@ import javax.annotation.Resource;
 import org.hibernate.SessionFactory;
 import org.springframework.stereotype.Repository;
 
-import com.entity.Power;
-import com.entity.Role;
+import com.entity1.Power;
+import com.entity1.Role;
 
 @Repository
 public class RolePowerDao {

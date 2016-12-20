@@ -9,11 +9,13 @@ import javax.annotation.Resource;
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
 import org.springframework.stereotype.Repository;
 
+import com.entity.Question;
 import com.entity.Answer;
 import com.entity.Chapter;
-import com.entity.Question;
+
 import com.entity.QuestionLevel;
 import com.entity.QuestionType;
 
@@ -35,26 +37,76 @@ public class QuestionDao {
 	/**
 	 * 按照一些规则去查找题
 	 */
-	public List<Question> findSomeQuestion(){
+	//不分页查询question
+	public List<Question> findAllQuestionNoPage(){
 		Session session=sessionFactory.getCurrentSession();
-		Query query=session.createQuery("from Question");
-		List<Question> lists=query.list();
-		return lists;
+		Query query=session.createQuery("from question");
+		List<Question> list=query.list();
+		return list;
 	}
 	
 	public List<QuestionType> findAllQuestionType(){
 		Session session=sessionFactory.getCurrentSession();
-		Query query=session.createQuery("from QuestionType");
+		Query query=session.createQuery("from questiontype");
 		List<QuestionType> lists=query.list();
 		return lists;
 	}
+	/*
+	 * 通过章节查找所有试题
+	 * */
+	public List<Question> findAllQuestionByChapter(String  chapter_id,int pageNum){
+		Session session =sessionFactory.getCurrentSession();
+		Query query=session.createQuery("select from question where chapter_id="+chapter_id);
+		query.setFirstResult(pageNum*3);
+		query.setMaxResults(3);
+		List<Question> list=query.list();
+		return list;
+	}
+	/*
+	 * 通过题型查找所有试题
+	 * */
+	public List<Question> findAllQuestionByType(String type,int pageNum){
+		Session session =sessionFactory.getCurrentSession();
+		Query query=session.createQuery("select from question where type_id="+type);
+		query.setFirstResult(pageNum*3);
+		query.setMaxResults(3);
+		List<Question> list=query.list();
+		return list;
+	}
+	/*
+	 * 通过难易程度查找所有试题
+	 * */
+	public List<Question> findAllQuestionByLevel(String level,int pageNum){
+		Session session =sessionFactory.getCurrentSession();
+		Query query=session.createQuery("select from question where level_id="+level);
+		query.setFirstResult(pageNum*3);
+		query.setMaxResults(3);
+		List<Question> list =query.list();
+		return list;
+	}
+	//分页实现对question的查询
+	public List<Question> findAllQuestion(int pageNum){
+		Session session=sessionFactory.getCurrentSession();
+		Query query=session.createQuery("from question");
+		query.setFirstResult(pageNum*3);
+		query.setMaxResults(3);
+		List<Question> list=query.list();
+		return list;
+	}
+	public List<QuestionLevel> findAllQuestionLevel(){
+		Session session=sessionFactory.getCurrentSession();
+		Query query=session.createQuery("from questionlevel");
+		List<QuestionLevel> list=query.list();
+		return list;
+	}
+
 	public void addQuestion(String content,int chapter,int type,int level,String answer){
 		int repect=0;
 		
 		 Session session=sessionFactory.getCurrentSession();
 		 Question question=new Question();
 		 Answer ans=new Answer();
-		 ans.setKeyses(answer);
+		 ans.setSolution(answer);
 		 Chapter ch=session.get(Chapter.class, chapter);
 		 QuestionType ty=session.get(QuestionType.class, type);
 		 QuestionLevel le=session.get(QuestionLevel.class, level);
@@ -80,7 +132,7 @@ public class QuestionDao {
 		 Session session=sessionFactory.getCurrentSession();
 		 Question question=new Question();
 		 Answer ans=new Answer();
-		 ans.setKeyses(answer);
+		 ans.setSolution(answer);
 		 Chapter ch=session.get(Chapter.class, chapter);
 		 QuestionType ty=session.get(QuestionType.class, type);
 		 QuestionLevel le=session.get(QuestionLevel.class, level);
@@ -101,19 +153,30 @@ public class QuestionDao {
 	/*
 	 * 通过问题的id删除试题
 	 * */
-	public void deleteQuestion(int id){
+	public void deleteQuestion(int id) {
 		Session session=sessionFactory.getCurrentSession();
-		Question question=session.get(Question.class, id);
-		session.delete(question);
+		Question q=session.get(Question.class, id);
+		Chapter c=session.get(Chapter.class, 1);
+		c.getQuestions().remove(q);
+			
+		
+		session.delete(q);
+		
+	}
+	public void deleteQuestion(String[] s){
+		Session session=sessionFactory.getCurrentSession();
+		for(String string:s){
+			Question q=session.get(Question.class, new Integer(string));
+			session.delete(q);
+		}
 	}
 	/*
 	 * 通过问题的id查找问题
 	 * */
-	public List<Question> findQuestionById(int id){
+	public Question findQuestionById(int id){
 		Session session =sessionFactory.getCurrentSession();
-		Query query=session.createQuery("select from question where id="+id);
-		List<Question> list=query.list();
-		return list;
+		Question question=session.get(Question.class, id);
+		return question;
 	}
 	/**
 	 * 通过不完全查找题干查询试题
@@ -124,6 +187,16 @@ public class QuestionDao {
 		Session session=sessionFactory.getCurrentSession();
 		Query query=session.createQuery("select from question where content like ?");
 		query.setString(0, "%"+content+"%");
+		List<Question> list=query.list();
+		return list;
+	}
+	public List<Question> IndistinctFindQuestion(String content,int pageNum){
+		Session session=sessionFactory.getCurrentSession();
+		String sql="from Question where content like :content";
+		Query query=session.createQuery(sql);
+		query.setString("content","%"+content+"%");
+		query.setFirstResult(pageNum*4);
+		query.setMaxResults(4);
 		List<Question> list=query.list();
 		return list;
 	}
@@ -142,7 +215,7 @@ public class QuestionDao {
 		QuestionLevel le=session.get(QuestionLevel.class, level);
 		question.setLevel(le);
 		Answer ans=session.get(Answer.class, id);
-		ans.setKeyses(answer);
+		ans.setSolution(answer);
 		session.update(question);
 		
 	}
@@ -160,11 +233,12 @@ public class QuestionDao {
 		QuestionLevel le=session.get(QuestionLevel.class, level);
 		question.setLevel(le);
 		Answer ans=session.get(Answer.class, id);
-		ans.setKeyses(answer);
+		ans.setSolution(answer);
 		question.setA(a);
 		question.setB(b);
 		question.setC(c);
 		question.setD(d);
 		session.update(question);
 	}
+	
 }

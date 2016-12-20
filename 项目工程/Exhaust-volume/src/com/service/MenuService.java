@@ -9,9 +9,9 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.dao.MenuDao;
 import com.dao.RolePowerDao;
-import com.entity.Menu;
-import com.entity.Power;
-import com.entity.Role;
+import com.entity1.Menu;
+import com.entity1.Power;
+import com.entity1.Role;
 
 @Service
 @Transactional(readOnly=true)
